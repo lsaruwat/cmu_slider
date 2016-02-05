@@ -8,11 +8,32 @@ include("header.php");
 ?>
 <!-- Main Content Begin -->
 
-<form>
-	<input type="text" name="username" id="username"/>
-	<input type="password" name="password" id="password"/>
-	<input type="submit" value="Submit" id="login_submit"/>
-</form>
+<div class="container">
+	<form>
+		<div class="row">
+			<div class="row">
+				<div class="twelve columns">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" class="u-full-width"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="twelve columns">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" class="u-full-width"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="twelve columns">
+					<input type="submit" value="Submit" id="login_submit" class="button-primary"/>
+				</div>
+			</div>
+		</div>
+		
+	</form>
+</div>
 
 <!-- Main Content End -->
 <?php
