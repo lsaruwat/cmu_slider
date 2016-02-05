@@ -14,4 +14,5 @@ foreach($row as $user){
 	echo "<h1>Email: " . $user['email'] . "</h1></br>";
 
 }
+
 ?>
