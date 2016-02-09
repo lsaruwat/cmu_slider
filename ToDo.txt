@@ -1,0 +1,19 @@
+# Things that need to be done
+# Please write your initials after you have completed a task
+# Add anything that you feel needs to be done
+
+
+MySql DB Schema
+
+Channel 2 API(figure out how to get stuff)
+
+Login page styling
+
+Ajax login for for login_page.php
+
+Jquery slider for content(There should be hundreds of these)
+
+Content management page
+
+
+
