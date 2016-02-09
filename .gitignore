@@ -27,5 +27,10 @@
 *.out
 *.app
 
+# Config files
 config.php
 config.php~
+
+#IDE files
+
+*.*~
