@@ -29,7 +29,7 @@
 
 # Config files
 config.php
-config.php~
+serverConfig.php
 
 #IDE files
 
