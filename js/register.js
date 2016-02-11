@@ -23,7 +23,7 @@ function submitForm(e){
 			console.log(returnData);
 			if(returnData.status == "inserted"){
 				
-				window.location="home.php";
+				window.location="login_page.php";
 			}
 
 			else {

@@ -21,9 +21,13 @@ function submitForm(e){
 			username : username,
 			password : password,
 		},
-		success : function (data) {
-			console.log("Username: " + data.username);
-			console.log("Password: " + data.password);
+		success : function (returnData) {
+			$("body").append(returnData);
+
+			console.log("Username: " + returnData.username);
+			console.log("Password: " + returnData.password);
+
+			console.log(returnData);
 
 		}
 

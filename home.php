@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION['username'])){
 include("db/connect.php"); // this connects to the cmu_slider db so we can query it
 
 $sql = "SELECT * FROM users"; // a string that is a mysql query
@@ -15,4 +16,7 @@ foreach($row as $user){
 
 }
 
+}
+
+else echo "Please login to continue";
 ?>
