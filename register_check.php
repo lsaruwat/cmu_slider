@@ -6,6 +6,7 @@ parse_str($_POST['data'],$data);
 
 $username = $data['username'];
 $password = $data['password'];
+$password2 = $data['password2'];
 $f_name = $data['f_name'];
 $l_name = $data['l_name'];
 $email = $data['email'];
@@ -20,11 +21,20 @@ $psql->execute(array(":username"=>$username));
 $row = $psql->fetch();
 
 // validate that it should be inserted
+$status = "failed";
 
-if($row[0] != '0') { // username exists
-	$status = "failed";
-	$errorMessage = "Username " . $username . " already exists!"
+if($username == "" || $password == "" || $password2 == "" || $f_name == "" || $l_name == "" || $email == "" || $group == ""){ // passwords don't match
+	$errorMessage = "One or more fields are blank!";
 }
+
+else if($password != $password2){ // passwords don't match
+	$errorMessage = "Passwords don't match";
+}
+
+else if($row[0] != '0') { // username exists
+	$errorMessage = "Username " . $username . " already exists!";
+}
+
 
 else{
 	$salt = createSalt();
