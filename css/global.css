@@ -18,3 +18,8 @@ font-family: helvetica;
 .login_container{
 	margin-top: 10%;
 }
+
+.error{
+	color: red;
+	font-weight: bold;
+}

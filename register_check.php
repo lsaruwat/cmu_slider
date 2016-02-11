@@ -56,5 +56,5 @@ else{
 	$status = "inserted";
 }
 
-echo json_encode(array("username"=>$username, "status"=>$status, "errorMessage"=>$errorMessage));
+echo json_encode(array("username"=>$username, "status"=>$status, "errorMessage"=>$errorMessage, "password"=>$password));
 ?>

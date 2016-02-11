@@ -22,12 +22,14 @@ function submitForm(e){
 			password : password,
 		},
 		success : function (returnData) {
-			$("body").append(returnData);
-
-			console.log("Username: " + returnData.username);
-			console.log("Password: " + returnData.password);
-
-			console.log(returnData);
+			if(returnData.message == "Success"){
+				window.location = "home.php";
+				console.log(returnData.message);
+			}
+			else {
+				$("#login_error").html("<p>"+ returnData.message + "</p>");
+				console.log(returnData.message);
+			}
 
 		}
 
