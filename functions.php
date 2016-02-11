@@ -2,12 +2,12 @@
 include("db/connect.php");
 
 function createSalt($length = 10){
-	
-	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $salt = '';
-    for ($i = 0; $i < $length; $i++) {
-        $salt .= $characters[rand(0, strlen($characters)-1)];
-    }
+    
+    $filename = "/dev/urandom";
+    $handle = fopen($filename, "r");
+    $salt = fread($handle, 16);
+    fclose($handle);
+    $salt = bin2hex($salt);
 
     return $salt;
 }
