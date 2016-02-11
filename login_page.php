@@ -8,31 +8,22 @@ include("header.php");
 ?>
 <!-- Main Content Begin -->
 
-<div class="container">
-	<form id="login_form">
-		<div class="row">
-			<div class="row">
-				<div class="twelve columns">
-					<label for="username">Username</label>
-					<input type="text" name="username" id="username" class="u-full-width"/>
-				</div>
-			</div>
+<div class="container login_container">
+	<div class="one-third column">&nbsp;</div>
 
-			<div class="row">
-				<div class="twelve columns">
-					<label for="password">Password</label>
-					<input type="password" name="password" id="password" class="u-full-width"/>
-				</div>
-			</div>
+	<div class="one-third column">
+		<form id="login_form">
+			<h3 class="section-heading" align="center">Login</h3>
+			<label for="username">Username</label>
+			<input type="text" name="username" id="username" class="u-full-width login_input"/>
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password" class="u-full-width login_input"/>
+			<br/><br/>
+			<center><input type="submit" value="Submit" id="login_submit" class="button-primary login_button"/></center>
+		</form>
+	</div>
 
-			<div class="row">
-				<div class="twelve columns">
-					<input type="submit" value="Submit" id="login_submit" class="button-primary"/>
-				</div>
-			</div>
-		</div>
-		
-	</form>
+	<div class="one-third column">&nbsp;</div>
 </div>
 
 <!-- Main Content End -->
