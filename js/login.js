@@ -6,10 +6,11 @@ $(document).ready(function() {
 
 
 function submitForm(e){
-	e.preventDefault();
+	e.preventDefault(); // prevent the default action
 
-	var username = $("#username").val();
-	var password = $("#password").val();
+	var username = $("#username").val(); // get password from form
+	var password = $("#password").val(); // get password from form
+	
 	console.log("Form submitted");
 	
 	$.ajax({
