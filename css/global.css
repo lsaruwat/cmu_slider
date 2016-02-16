@@ -18,3 +18,12 @@ font-family: helvetica;
 .login_container{
 	margin-top: 10%;
 }
+
+.login_box {
+	border-radius: 25px;
+	border: 2px solid black;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
