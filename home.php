@@ -1,23 +1,26 @@
 <?php
 session_start();
-
-if(isset($_SESSION['username'])){
 include("db/connect.php"); // this connects to the cmu_slider db so we can query it
 
-/*
-$sql = "SELECT * FROM users"; // a string that is a mysql query
-$psql = $conn->prepare($sql); // prepare the mysql statement
-$psql->execute(); // execute the statement. if it is an insert then an associative array is used to avoid sql injection
-$row = $psql->fetchALL(); // fetchALL gets all results from query as an associative array.
-*/
+$pageTitle = "home";
+include("header.php");
+
+if(isset($_SESSION['username'])){
+?>
+<!-- Main Content Begin -->
+<script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+<textarea name="editor1"></textarea>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+        </script>
 
 
-echo "<h1>Welcome " . $_SESSION['f_name'] . " "  . $_SESSION['l_name'] . "</h1></br>";
+<?php
 
-}
+} // endif
 
 else {
 	echo "Please login to continue";
-	var_dump($_SESSION);
 }
+
 ?>
