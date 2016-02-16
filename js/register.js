@@ -22,13 +22,12 @@ function submitForm(e){
 		success : function (returnData) {
 			console.log(returnData);
 			if(returnData.status == "inserted"){
-				
 				window.location="login_page.php";
 			}
 
 			else {
 				console.log(returnData.status);
-				$("#feedback_message").html("<h3>"+returnData.errorMessage+"</h3>");
+				$("#feedback_message").html("<p>"+returnData.errorMessage+"</p>");
 			}
 		}
 

@@ -19,6 +19,7 @@ font-family: helvetica;
 	margin-top: 10%;
 }
 
+<<<<<<< HEAD
 .login_box {
 	border-radius: 25px;
 	border: 2px solid black;
@@ -26,4 +27,9 @@ font-family: helvetica;
 	padding-right: 40px;
 	padding-top: 20px;
 	padding-bottom: 20px;
+=======
+.error{
+	color: red;
+	font-weight: bold;
+>>>>>>> 94575a583f4b733ac335c8d351a224a0cc33f4e9
 }

@@ -67,7 +67,7 @@ include("header.php");
 			</div>
 			<div class="row">
 				<div class="twelve columns">
-					<div class="feedback" id="feedback_message"></div>
+					<div class="error" id="feedback_message"></div>
 				</div>
 			</div>
 		</div>
