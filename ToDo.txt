@@ -10,7 +10,13 @@ curl --data "screen_id=133&field_id=129" http://concerto.coloradomesa.edu/concer
 
 Login page styling
 
-Ajax login for for login_page.php
+#Ajax login for for login_page.php - LS
+
+Dynamic dropdown menu for permissions on register form
+
+Simple Slide creation form
+
+Image slide creation form
 
 Jquery slider for content(There should be hundreds of these)
 
