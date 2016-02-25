@@ -12,7 +12,7 @@ curl --data "screen_id=133&field_id=129" http://concerto.coloradomesa.edu/concer
 
 #Ajax login for for login_page.php - LS
 
-Dynamic dropdown menu for permissions on register form
+#Dynamic dropdown menu for permissions on register form - KF
 
 Simple Slide creation form
 
