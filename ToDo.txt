@@ -8,7 +8,7 @@ MySql DB Schema
 Channel 2 API(figure out how to get stuff)
 curl --data "screen_id=133&field_id=129" http://concerto.coloradomesa.edu/concerto/screen/content.php
 
-Login page styling
+#Login page styling - KF
 
 #Ajax login for for login_page.php - LS
 
