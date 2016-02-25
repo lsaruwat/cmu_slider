@@ -43,7 +43,14 @@ include("header.php");
 				</div>
 				<div class="six columns">
 					<label for="permissions">Permissions</label>
-					<input type="text" name="permissions" id="permissions" class="u-full-width"/>
+				<!--	<input type="text" name="permissions" id="permissions" class="u-full-width"/> -->
+					<select name="permissions" id="permissions" class="u-full-width"/>
+						<?php
+						foreach($conn->query('SELECT type from PERMISSIONS') as $row) {
+							echo "<option value=\"" . $row['type'] . "\">" . $row['type'] . "</option>";
+						}
+						?>
+					</select>
 				</div>
 
 			</div>
