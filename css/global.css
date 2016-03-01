@@ -40,6 +40,7 @@ html{
 	color: #292929;
 	font-weight: 900;
 	background-image: url("http://coloradomesa.edu/_files/images/slider/showcase-2016-homepage.jpg");
+	background-size: cover;
 	width: 100%;
 	min-height: 500px;
 
