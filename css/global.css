@@ -1,5 +1,5 @@
 html{
-font-family: helvetica;
+	font-family: helvetica;
 }
 
 .row{
@@ -22,7 +22,7 @@ font-family: helvetica;
 
 .login_box {
 	border-radius: 25px;
-	border: 2px solid black;
+	border: 2px solid #292929;
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 20px;
@@ -30,6 +30,30 @@ font-family: helvetica;
 }
 
 .error{
-	color: red;
+	color: #ff281e;
 	font-weight: bold;
 }
+
+.slide_preview{
+	display: none;
+	position: relative;
+	color: #292929;
+	font-weight: 900;
+	background-image: url("http://coloradomesa.edu/_files/images/slider/showcase-2016-homepage.jpg");
+	width: 100%;
+	min-height: 500px;
+
+}
+
+.slide_preview .content_container{
+	display: inline-block;
+	position: absolute;
+	right: 5%;
+	bottom: 15%;
+	padding: 0px 15px 10px 15px;
+	color: #fff;
+	text-align: left;
+	background-color: rgba(0, 0, 0, .7);
+}
+
+

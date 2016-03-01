@@ -40,6 +40,8 @@ if(isset($_SESSION['username'])){
 	</form>
 
 	<div class="row slide_preview" id="slide_preview">
+		<div class="content_container" id="content_container">
+		</div>
 
 	</div>
 </div>

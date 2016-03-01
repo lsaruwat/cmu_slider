@@ -9,11 +9,13 @@ function renderPreview(){
 
 	var title = $("#slide_title").val();
 	var content = CKEDITOR.instances['slide_content'].getData();	
-	var previewArea = $("#slide_preview");
+	var contentContainer = $("#content_container");
+	var slidePreview = $("#slide_preview");
 
 	console.log(title);
 	console.log(content);
 
-	previewArea.html("<h1 class='title_preview'>" + title + "</h1>");
-	previewArea.append("<p class='content_preview'>" + content + "</p>");
+	slidePreview.attr('style', "display: inline-block;")
+	contentContainer.html("<h1 class='title_preview'>" + title + "</h1>");
+	contentContainer.append("<p class='content_preview'>" + content + "</p>");
 }
