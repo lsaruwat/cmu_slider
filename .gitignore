@@ -34,3 +34,4 @@ serverConfig.php
 #IDE files
 
 *.*~
+.idea/
