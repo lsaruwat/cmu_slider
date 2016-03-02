@@ -10,7 +10,22 @@ if(isset($_SESSION['username'])){
 <!-- Main Content Begin -->
 <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 
+
 <div class="container">
+	
+	<div id="slide_options">
+		<div class="row">
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Text Slide"/>
+			</div>
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Picture Slide"/>
+			</div>
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Web Slide"/>
+			</div>
+	</div>
+
 	<form id="register_form">
 		
 		<div class="row">

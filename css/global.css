@@ -58,3 +58,11 @@ html{
 }
 
 
+div#slide_options{
+	text-align: center;
+}
+
+div#slide_options input.selected{
+	background-color: #33C3F0;
+	color: #FFF;
+}
