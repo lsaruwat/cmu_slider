@@ -28,6 +28,13 @@ if(isset($_SESSION['username'])){
 
 	<form id="register_form">
 		
+		<div class="row optional url">
+			<div class="twelve columns">
+				<label for="slide_url">Website URL</label>
+					<input type="text" name="slide_url" id="slide_url" class="u-full-width"/>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="twelve columns">
 				<label for="slide_title">Title</label>
@@ -51,6 +58,13 @@ if(isset($_SESSION['username'])){
 				<input type="submit" value="Submit" class="button-primary" id="submit_slide_button"/>
 			</div>
 		</div>
+
+		<div class="row optional picture">
+			<div class="twelve columns">
+				<label for="slide_url">Upload Picture</label>
+					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width"/>
+			</div>
+		</div>
 	
 	</form>
 
@@ -69,6 +83,7 @@ include("footer.php");
 
 else {
 	echo "Please login to continue";
+
 }
 
 ?>

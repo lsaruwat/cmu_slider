@@ -2,9 +2,17 @@ html{
 	font-family: helvetica;
 }
 
+.container{
+	
+}
+
 .row{
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.container input{
+	background-color: #FFF;
 }
 
 .login_input{
@@ -66,3 +74,13 @@ div#slide_options input.selected{
 	background-color: #33C3F0;
 	color: #FFF;
 }
+
+form#register_form .row.optional{
+	display: none;
+}
+
+form#register_form .row.optional.activated{
+	display: block;
+}
+
+

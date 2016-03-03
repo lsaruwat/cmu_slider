@@ -32,16 +32,21 @@ function selectSlideType(e){
 	button.addClass("selected");
 
 	if(button.val() === "Text Slide"){
-		
+		$("#register_form .row.optional.picture").attr("class", "row optional picture");
+		$("#register_form .row.optional.url").attr("class","row optional url");
 		// show only title and content inputs
 	}
 
 	else if(button.val() === "Picture Slide"){
 		// show title, upload picture, and content inputs
+		$("#register_form .row.optional.picture").addClass("activated");
+		$("#register_form .row.optional.url").attr("class","row optional url");
 	}
 
 	else if(button.val() === "Web Slide"){
 		// show title, content, and url inputs
+		$("#register_form .row.optional.url").addClass("activated");
+		$("#register_form .row.optional.picture").attr("class", "row optional picture");
 	}
 
 }
