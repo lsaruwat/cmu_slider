@@ -7,7 +7,7 @@ include("db/connect.php");
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$sql = "SELECT salt FROM users WHERE username=:username";
+$sql = "SELECT salt FROM Users WHERE username=:username";
 $psql = $conn->prepare($sql);
 $psql->execute(array(":username"=>$username));
 $row = $psql->fetch();
@@ -17,7 +17,7 @@ $salt = $row['salt'];
 $passwordHashed = hashPassword($password, $salt);
 
 
-$sql = "SELECT * FROM users WHERE username=:username and password=:password";
+$sql = "SELECT * FROM Users WHERE username=:username and password=:password";
 $psql = $conn->prepare($sql);
 $psql->execute(array(":username"=>$username,":password"=>$passwordHashed));
 $row = $psql->fetch();

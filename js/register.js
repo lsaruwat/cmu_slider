@@ -22,7 +22,11 @@ function submitForm(e){
 		success : function (returnData) {
 			console.log(returnData);
 			if(returnData.status == "inserted"){
-				window.location="login_page.php";
+				$("#feedback_message").html("<p>Registered successfully</p>");
+				
+				window.setTimeout(function(){
+					window.location="login_page.php";
+				}, 1000);
 			}
 
 			else {

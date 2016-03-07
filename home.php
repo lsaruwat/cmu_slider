@@ -24,6 +24,7 @@ if(isset($_SESSION['username'])){
 			<div class="four columns">
 				<input type="button" class="button" id="simple" value="Web Slide"/>
 			</div>
+		</div>
 	</div>
 
 	<form id="register_form">

@@ -20,6 +20,10 @@ function renderPreview(){
 	slidePreview.attr("style", "display: inline-block; height:" + height + "px;");
 	contentContainer.html("<h1 class='title_preview'>" + title + "</h1>");
 	contentContainer.append("<p class='content_preview'>" + content + "</p>");
+
+	$('html, body').animate({
+    	scrollTop: slidePreview.offset().top
+	}, 800);//this seems gross but this is how you scroll to an element
 }
 
 
