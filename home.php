@@ -83,7 +83,7 @@ include("footer.php");
 } // endif
 
 else {
-	$loginURL = "http://baldr.whatever212.net/software16/login_page.php";
+	$loginURL = "login_page.php";
 	echo "Please <a href='$loginURL'>login</a> to continue";
 
 }
