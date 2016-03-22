@@ -14,13 +14,16 @@ curl --data "screen_id=133&field_id=129" http://concerto.coloradomesa.edu/concer
 
 #Dynamic dropdown menu for permissions on register form - KF
 
+#Need index page - KF
+
+#Jquery slider for content(There should be hundreds of these) - LS
+
 Simple Slide creation form
 
 Image slide creation form
 
-Jquery slider for content(There should be hundreds of these)
+User management page
 
-Content management page
+Slide edit page
 
-Need index page
-
+Slide delete page
