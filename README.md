@@ -1,4 +1,4 @@
-# software16
+# CMU Slider
 
 Repo for Software engineering class
 
