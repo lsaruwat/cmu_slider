@@ -1,4 +1,5 @@
 # software16
-test repo for software engineering
 
-added some lines to the readme for testing
+Repo for Software engineering class
+
+Cmu slider application for cs dept
