@@ -73,7 +73,7 @@ if(isset($_SESSION['username'])){
 			<td>
 				<form action="delete_user.php" method="post">
 					<input type="hidden" name="username" value="<?php echo $user['username']; ?>">
-					<input type="submit" value="Delete">
+					<input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this user?');">
 				</form>
 			</td>
 		</tr>
