@@ -6,12 +6,12 @@ $pageTitle = "users";
 include("header.php");
 
 if(isset($_SESSION['username'])){
-	$group_query = "SELECT permissions
-	FROM Users
-	WHERE username='$_SESSION['username']'";
+	$group_query = "SELECT permissions 
+	FROM Users 
+	WHERE username='" . $_SESSION['username'] . "'";
 	$group_statement = $conn->prepare($group_query);
 	$group_statement->execute();
-	$group = $group_statement->fetchAll();
+	$group = $group_statement->fetchColumn(0);
 	$group_statement->closeCursor();
 	
 	if($group == 'Kalvin') {
@@ -88,12 +88,12 @@ include("footer.php");
 	} //endif isadmin
 	else {
 		echo "You do not have permission to access this page.";
+		echo $group;
 	}
 } // endif username isset
 
 else {
-	$loginURL = "login_page.php"
+	$loginURL = "login_page.php";
 	echo "Please <a href='$loginURL'>login</a> to continue";
 }
-*/
 ?>
