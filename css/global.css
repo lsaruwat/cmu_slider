@@ -75,11 +75,11 @@ div#slide_options input.selected{
 	color: #FFF;
 }
 
-form#register_form .row.optional{
+form#slide_form .row.optional{
 	display: none;
 }
 
-form#register_form .row.optional.activated{
+form#slide_form .row.optional.activated{
 	display: block;
 }
 

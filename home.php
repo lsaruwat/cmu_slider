@@ -27,7 +27,7 @@ if(isset($_SESSION['username'])){
 		</div>
 	</div>
 
-	<form id="register_form">
+	<form id="slide_form">
 		
 		<div class="row optional url">
 			<div class="twelve columns">
