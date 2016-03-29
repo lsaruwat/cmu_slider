@@ -107,3 +107,28 @@ form#register_form .row.optional.activated{
 	vertical-align: center;
 	text-align: center;
 }
+
+.users_container {
+	margin-top: 0;
+	margin: 0 auto;
+	border: 1px solid black;
+	padding: .5em 1em;
+}
+
+.users_container table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.users_container td {
+	padding: .2em .5em .2em .5em;
+	vertical-align: center;
+	text-align: center;
+}
+
+.users_container th {
+	padding: .2em .5em .2em .5em;
+	vertical-align: center;
+	text-align: center;
+}

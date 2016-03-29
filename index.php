@@ -54,7 +54,7 @@ if(isset($_SESSION['username'])){
 				<?php
 					if($permissions['editslide'] == 1) {
 				?>
-						<form action="edit.php" method="post">
+						<form action="edit_slide.php" method="post">
 							<input type="hidden" name="slide_id" value="<?php echo $slide['slideid']; ?>">
 							<input type="submit" value="Edit">
 						</form>
@@ -71,7 +71,7 @@ if(isset($_SESSION['username'])){
 				<?php
 					if($permissions['deleteslide'] == 1) {
 				?>
-						<form action="delete.php" method="post">
+						<form action="delete_slide.php" method="post">
 							<input type="hidden" name="slide_id" value="<?php echo $slide['slideid']; ?>">
 							<input type="submit" value="Delete">
 						</form>
