@@ -81,7 +81,8 @@ function submitBasic(e){
 	var slideData = { 
 		title : $("#slide_title").val(),
 		content : CKEDITOR.instances['slide_content'].getData(),
-		templateId : 1
+		image : $("#slide_picture").val(),
+		url : $("#slide_url").val()
 	};
 
 	console.log(slideData);
@@ -96,7 +97,7 @@ function submitBasic(e){
 
 	success : function (returnData) {
 		if(returnData.message == "Success"){
-			//window.location = "home.php";
+			setTimeout(function(){location.reload();},1000);
 			console.log(returnData.message);
 		}
 		else {

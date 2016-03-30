@@ -5,17 +5,17 @@ include("db/connect.php");
 
 $title = $_POST['slideData']['title'];
 $content = $_POST['slideData']['content'];
-$content = $_POST['slideData']['templateId'];
+$image = $_POST['slideData']['image'];
+$url = $_POST['slideData']['url'];
+//$templateId = $_POST['slideData']['templateId'];
 
-$sql = "INSERT INTO TemplateText (templateid, title, text) VALUES (:templateId, :title, :content)";
+$sql = "INSERT INTO slide (title, content, image, url) VALUES (:title, :content, :image, :url)";
 $psql = $conn->prepare($sql);
-$psql->execute(array(":templateId"=>$templateId, ":title"=>$title, ":content"=>$content));
-$row = $psql->fetch();
-
+$query = $psql->execute(array(":title"=>$title, ":content"=>$content,  ":image"=>$image,  ":url"=>$url));
 
 $message = "FAILED";
 
-if($row != false){
+if($query != false){
 	$message = "Success";
 }
 

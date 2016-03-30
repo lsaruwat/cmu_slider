@@ -54,7 +54,7 @@ html{
 
 }
 
-.slide_preview .content_container{
+.slide_preview .content_container, #slides .content_container{
 	display: inline-block;
 	position: absolute;
 	right: 5%;
