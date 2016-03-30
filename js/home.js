@@ -3,7 +3,7 @@ $(document).ready(function() {
 	CKEDITOR.replace('slide_content'); // replace textarea with nice editor
 	$("#preview_button").on("click", renderPreview);
 	$("#slide_options .button").on("click", selectSlideType);
-	$("#slide_form").on("submit",submitBasic);
+	$("#slide_form").on("submit",submitSlide);
 });
 
 
@@ -37,7 +37,7 @@ function selectSlideType(e){
 		$("#slide_form .row.optional.picture").attr("class", "row optional picture");
 		$("#slide_form .row.optional.url").attr("class","row optional url");
 		$("#slide_form").off("submit");
-		$("#slide_form").on("submit",submitBasic);
+		$("#slide_form").on("submit",submitSlide);
 		// show only title and content inputs
 	}
 
@@ -46,11 +46,7 @@ function selectSlideType(e){
 		$("#slide_form .row.optional.picture").addClass("activated");
 		$("#slide_form .row.optional.url").attr("class","row optional url");
 		$("#slide_form").off("submit");
-		$("#slide_form").on("submit",function(e){
-			e.preventDefault();
-			var formData = $("#slide_form").serialize();
-			console.log("Picture slide submitted");
-		});
+		$("#slide_form").on("submit",submitSlide);
 	}
 
 	else if(button.val() === "Web Slide"){
@@ -58,11 +54,7 @@ function selectSlideType(e){
 		$("#slide_form .row.optional.url").addClass("activated");
 		$("#slide_form .row.optional.picture").attr("class", "row optional picture");
 		$("#slide_form").off("submit");
-		$("#slide_form").on("submit",function(e){
-			e.preventDefault();
-			var formData = $("#slide_form").serialize();
-			console.log("Web Slide submitted");
-		});
+		$("#slide_form").on("submit",submitSlide);
 	}
 
 }
@@ -76,7 +68,7 @@ function handleFormSubmit(e){
 }
 
 
-function submitBasic(e){
+function submitSlide(e){
 	e.preventDefault();
 	var slideData = { 
 		title : $("#slide_title").val(),

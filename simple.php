@@ -43,9 +43,9 @@
     });
 
     console.log(slideshow);
-     //$("body").on("animated.slides",function(){$("ul.slides-container li")[0].remove();});
+     //$("body").on("animated.slides",function(){$("ul.slides-container li")[0].addClass("hackedAway");});
 
-    setInterval(getNextSlide, 5000);
+    setInterval(getNextSlide, 7000);
     //setTimeout(function(){location.reload()},50000);
   }
 
@@ -68,15 +68,19 @@
         if(returnData.message == "Success"){
           //console.log(returnData);
           var nextSlideData = returnData.slide[0];
-          console.log(returnData.slide[0].title);
 
 
-          var imageTag = "<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
-          if(nextSlideData.image !== ""){
-            console.log("this is true");
+          var imageTag = "<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>"; //default image tag if there is none
+          var iframeTag = "";
+          if(nextSlideData.image !== ""){ //there is an image
             imageTag = "<img src='" + nextSlideData.image + "'/>";
+
           }
-          var nextSlide = "<li>" + imageTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
+
+          else if(nextSlideData.url !== ""){
+            iframeTag = "<iframe src='" + nextSlideData.url + "' ></iframe>";
+          }
+          var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
 
           var slidesContainer = $("ul.slides-container li");
           
@@ -84,15 +88,25 @@
             slideshow.superslides('start');
             slideshow.superslides('next');
             console.log("first slide");
+            //$("body").on("animated.slides",function(){$("ul.slides-container li")[0].addClass("hackedAway");});
+            //$("body").on("animated.slides",function(){$("ul.slides-container li")[0].remove();});
+          }
+
+          else if(slideNumber === 1){
+            $("body").on("animated.slides",function(){$("ul.slides-container li")[0].remove();});
+            slidesContainer.parent().append(nextSlide);
+            slideshow.superslides('update');
+            slideshow.superslides('next');
+
           }
           else{
-            console.log("next slide");
-            $('#slides').superslides('stop');
-            slideshow.superslides('next');
-            slidesContainer.parent().append(nextSlide);
-            //$("ul.slides-container li")[0].remove();
-            slideshow.superslides('update');
             slideshow.superslides('start');
+            console.log("next slide");
+            slidesContainer.parent().append(nextSlide);
+            console.log($("ul.slides-container li")[0]);
+            //$("ul.slides-container li")[0].addClass("hackedAway");
+            slideshow.superslides('update');
+            slideshow.superslides('next');
           }
           slideNumber++;
         }

@@ -2,3 +2,11 @@ li iframe{
 	width: 100%;
 	height: 100%;
 }
+
+li.hackedAway{
+	display: none !important;
+}
+
+nav .slides-pagination{
+	display: none;
+}
