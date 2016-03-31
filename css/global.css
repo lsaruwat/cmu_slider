@@ -65,6 +65,14 @@ html{
 	background-color: rgba(0, 0, 0, .7);
 }
 
+.content_container h1{
+	font-size:  48px;
+}
+
+.content_container p{
+	font-size:  36px;
+}
+
 
 div#slide_options{
 	text-align: center;
