@@ -39,7 +39,8 @@
   var slideNumber = 0;
   function ready(){
     slideshow = $('#slides').superslides({
-      animation : 'slide'
+      animation : 'slide',
+      pagination : false,
     });
 
     console.log(slideshow);
