@@ -27,7 +27,7 @@ if(isset($_SESSION['username'])){
 		</div>
 	</div>
 
-	<form id="slide_form">
+	<form id="slide_form" enctype="multipart/form-data">
 		
 		<div class="row optional url">
 			<div class="twelve columns">
@@ -50,6 +50,13 @@ if(isset($_SESSION['username'])){
 			</div>
 		</div>
 
+		<div class="row optional picture">
+			<div class="twelve columns">
+				<label for="slide_picture">Upload Picture</label>
+					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width"/>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="six columns">
 				<input type="button" value="Preview" class="button" id="preview_button"/>
@@ -57,13 +64,6 @@ if(isset($_SESSION['username'])){
 
 			<div class="six columns">
 				<input type="submit" value="Submit" class="button-primary" id="submit_slide_button"/>
-			</div>
-		</div>
-
-		<div class="row optional picture">
-			<div class="twelve columns">
-				<label for="slide_url">Upload Picture</label>
-					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width"/>
 			</div>
 		</div>
 	

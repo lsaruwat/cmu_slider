@@ -70,12 +70,27 @@ function handleFormSubmit(e){
 
 function submitSlide(e){
 	e.preventDefault();
-	var slideData = { 
-		title : $("#slide_title").val(),
-		content : CKEDITOR.instances['slide_content'].getData(),
-		image : $("#slide_picture").val(),
-		url : $("#slide_url").val()
-	};
+
+	// var slideData = { 
+	// 	title : $("#slide_title").val(),
+	// 	content : CKEDITOR.instances['slide_content'].getData(),
+	// 	image : $("#slide_image").val(),
+	// 	url : $("#slide_url").val()
+	// };
+
+	var slideData = new FormData();
+
+	//Append files infos
+ jQuery.each($("#slide_picture")[0].files, function(i, file) {
+     slideData.append('file-'+i, file);
+ });
+
+
+	slideData.append("title", $("#slide_title").val() );
+	slideData.append("content", CKEDITOR.instances['slide_content'].getData() );
+	// slideData.append("image", $("#slide_image").val() );
+	slideData.append("url", $("#slide_url").val() );
+
 
 	console.log(slideData);
 
@@ -83,18 +98,21 @@ function submitSlide(e){
 	url : "insertSlide.php",
 	dataType : 'json',
 	type : 'POST',
-	data : {
-		slideData
-	},
+	processData : false,
+	cache : false,
+	contentType : false,
+	data : slideData,
 
 	success : function (returnData) {
 		if(returnData.message == "Success"){
-			setTimeout(function(){location.reload();},1000);
+			//setTimeout(function(){location.reload();},1000);
 			console.log(returnData.message);
+			console.log(returnData);
 		}
 		else {
 			$("#login_error").html("<p>"+ returnData.message + "</p>");
 			console.log(returnData.message);
+			console.log(returnData);
 		}
 
 	}
