@@ -71,16 +71,20 @@
           var nextSlideData = returnData.slide[0];
 
 
-          var imageTag = "<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>"; //default image tag if there is none
+          var imageTag = ""; //default image tag if there is none
           var iframeTag = "";
+
           if(nextSlideData.image !== ""){ //there is an image
             imageTag = "<img src='" + nextSlideData.image + "'/>";
 
           }
 
+
           else if(nextSlideData.url !== ""){
             iframeTag = "<iframe src='" + nextSlideData.url + "' ></iframe>";
           }
+
+          else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
           var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
 
           var slidesContainer = $("ul.slides-container li");
