@@ -6,7 +6,8 @@ $pageTitle = "edit";
 include("header.php");
 
 //TODO: Currently hard-coded because HTTP_REFERER includes whole link.
-if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/users.php') {
+//if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/users.php') {
+if($_SESSION['permissions'] === 'admin') {
 	$username = filter_input(INPUT_POST, 'username');
 	$user_query = "SELECT *
 	FROM Users
@@ -41,7 +42,7 @@ if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/users.ph
 				<select name="group" id="group" class="u-full-width">
 					<?php foreach($conn->query('SELECT type from Permissions') as $row) {
 						if($user['permissions'] != $row['type'])
-							echo "<option value='" . $row['type'] . "'>" . row['type'] . "</option>";
+							echo "<option value='" . $row['type'] . "'>" . $row['type'] . "</option>";
 						else
 							echo "<option selected value='" . $row['type'] . "'>" . $row['type'] . "</option>";
 					} ?>
