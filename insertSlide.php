@@ -7,8 +7,13 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 $url = $_POST['url'];
 
-$target_dir = "img/";
-$target_file = $target_dir . basename($_FILES["file-0"]["name"]);
+$target_file = "";
+
+if($_FILES["file-0"]["name"] != ""){
+	$target_dir = "img/";
+	$target_file = $target_dir . basename($_FILES["file-0"]["name"]);
+}
+
 $message = "Success";
 if(file_exists($target_file))$message = "File already exists";
 else {
