@@ -15,4 +15,19 @@ include("functions.php");
     <!-- Css stylesheets go here -->
   </head>
   <body>
-  <h1><?php echo ucfirst($pageTitle); ?></h1>
+  <h1 class="title"><?php echo ucfirst($pageTitle); ?></h1>
+  <div class="container">
+    <div id="navigation">
+      <div class="row">
+        <div class="four columns">
+          <a href="home.php" ><h4>Home</h4></a>
+        </div>
+        <div class="four columns">
+          <a href="edit_slides.php" ><h4>Edit Slides</h4></a>
+        </div>
+        <div class="four columns">
+          <a href="users.php" ><h4>Edit Users</h4></a>
+        </div>
+      </div>
+    </div>
+  </div>

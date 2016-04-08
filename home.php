@@ -10,7 +10,6 @@ if(isset($_SESSION['username'])){
 <!-- Main Content Begin -->
 <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 
-
 <div class="container">
 	
 	<div id="slide_options">

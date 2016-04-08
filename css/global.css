@@ -151,3 +151,16 @@ form#slide_form .row.optional.activated{
 	padding: .2em .5em .2em .5em;
 	text-align: center;
 }
+
+div#navigation{
+	text-align: center;
+}
+
+div#navigation a{
+	text-decoration: none;
+}
+
+h1.title{
+	float: left;
+	margin-top: 0px;
+}
