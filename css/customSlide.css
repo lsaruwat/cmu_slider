@@ -4,6 +4,7 @@ body{
 }
 div#slides{
 	overflow: hidden;
+	background-color: #111;
 }
 
 div#slides .slides-container{
@@ -16,6 +17,7 @@ div#slides .slides-container{
 div#slides .slides-container li{
 	width: 100%;
 	height: 100%;
+	list-style: none;
 }
 
 div#slides .slides-container li img{
@@ -52,7 +54,7 @@ div#slides .slides-container li .content-container{
 li.prev_slide{
 	position: absolute;
 	right: 2000px;
-	-webkit-animation: slideOut 2s
+	-webkit-animation: slideOut 1.5s
 }
 
 li.next_slide{
@@ -64,5 +66,5 @@ li.next_slide{
 li.active_slide{
 	position: absolute;
 	left: 0px;
-	-webkit-animation: slideIn 2s
+	-webkit-animation: slideIn 1.5s
 }

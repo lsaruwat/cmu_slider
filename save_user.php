@@ -1,7 +1,8 @@
 <?php
+session_start();
 include("db/connect.php");
 
-if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/edit_user.php') {
+if($_SESSION['permissions'] === 'admin') {
 	$username = filter_input(INPUT_POST, 'username');
 	$fname = filter_input(INPUT_POST, 'fname');
 	$lname = filter_input(INPUT_POST, 'lname');
@@ -9,10 +10,10 @@ if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/edit_use
 	$group = filter_input(INPUT_POST, 'group');
 
 	$update_user = "UPDATE Users
-	SET fname='" . $fname . "', lname='" . $lname . "', email='" . $email . "', group='" . $group . "'
-	WHERE username='" . $username . "'";
+	SET fname=:fname, lname=:lname, email=:email, group=:group
+	WHERE username=:username";
 	$statement = $conn->prepare($update_user);
-	$statement->execute();
+	$statement->execute(array(":fname"=>$fname, ":lname"=>$lname, ":email"=>$email, ":group"=>$group, ":username"=>$username));
 	$statement->closeCursor();
 
 	include('users.php');
