@@ -35,3 +35,6 @@ serverConfig.php
 
 *.*~
 .idea/
+
+# non asset images
+img/*
