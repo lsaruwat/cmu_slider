@@ -105,7 +105,7 @@
           //this is a hardcoded channel 2 iframe. Ajax doesn't work so this is all I could come up with
           if(slideNumber%2===0){
             ajaxSlide =  "<li class='next_slide' id='channel2'><iframe src='http://concerto.coloradomesa.edu/concerto/screen/index.php?mac=00:00:00:00:0B:AD/'></iframe></li>";
-            replaceContent();
+            //replaceContent();
           }
           var slidesContainer = $("ul.slides-container");
 
@@ -132,9 +132,10 @@
   }
 
 function replaceContent(){
+  
   var content = $("#channel2 iframe").contents().find( "body" ).html();
-  $(".next_slide").html(content);
-  console.log(content);
+  $(".next_slide").html( content );
+  console.log( content );
   $(this).remove();
 }
 
