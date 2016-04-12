@@ -70,6 +70,7 @@
   }
 
   function getNextSlide(){
+    setHeight();
 
     $.ajax({
       url : "getSlide.php",
@@ -99,6 +100,9 @@
 
           else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
           var ajaxSlide =  "<li class='next_slide'>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
+
+          //this is a hardcoded channel 2 iframe. Ajax doesn't work so this is all I could come up with
+          if(slideNumber%2===0)ajaxSlide =  "<li class='next_slide'><iframe src='http://concerto.coloradomesa.edu/concerto/screen/index.php?mac=00:00:00:00:0B:AD/'></iframe></li>";
           
           var slidesContainer = $("ul.slides-container");
 
@@ -106,15 +110,11 @@
           var activeSlide = $("ul.slides-container li")[1];
           var nextSlide = $("ul.slides-container li")[2];
 
-          console.log(prevSlide);
-          console.log(activeSlide);
-          console.log(nextSlide);
-
+          
           prevSlide.remove();
           activeSlide.setAttribute("class","prev_slide");
           nextSlide.setAttribute("class","active_slide");
           slidesContainer.append(ajaxSlide);
-
 
         }
 
@@ -125,7 +125,7 @@
       }
 
     });
-
+  slideNumber++;
   }
 
 

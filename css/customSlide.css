@@ -50,21 +50,31 @@ div#slides .slides-container li .content-container{
     to{left: 0px;}
 }
 
+@-webkit-keyframes fadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
 
 li.prev_slide{
 	position: absolute;
-	right: 2000px;
-	-webkit-animation: slideOut 1.5s
+	right: 5000px;
+	-webkit-animation: fadeOut 1.5s
 }
 
 li.next_slide{
 	position: absolute;
-	left: 2000px;
+	left: 5000px;
 
 }
 
 li.active_slide{
 	position: absolute;
 	left: 0px;
-	-webkit-animation: slideIn 1.5s
+	-webkit-animation: fadeIn 1.5s
 }
