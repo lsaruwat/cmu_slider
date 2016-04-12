@@ -16,7 +16,7 @@ if($_SESSION['permissions'] === 'admin') {
 	$statement->execute(array(":fname"=>$fname, ":lname"=>$lname, ":email"=>$email, ":group"=>$group, ":username"=>$username));
 	$statement->closeCursor();
 
-	include('users.php');
+//	include('users.php');
 }
 
 else {
