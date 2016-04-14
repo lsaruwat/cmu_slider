@@ -14,7 +14,7 @@ if($_SESSION['permissions'] === 'admin') {
 	WHERE username = '" . $username . "'";
 	$user_statement = $conn->prepare($user_query);
 	$user_statement->execute();
-	$user = $user_statement->fetchAll();
+	$user = $user_statement->fetch();
 	$user_statement->closeCursor();
 ?>
 <!-- Main Content Begin -->
@@ -22,20 +22,21 @@ if($_SESSION['permissions'] === 'admin') {
 <div class="container edit_user_container">
 	<h1><?php echo $username ?></h1><br>
 	<form id="edit_user_form" action="save_user.php" method="post">
+		<input type="hidden" name="username" value="<?php echo $username; ?>"/>
 		<div class="row">
 			<div class="six columns">
 				<label for="fname">First Name</label>
-				<input type="text" name="fname" value="<?php echo $user['fname']; ?>" class="u-full-width"><br><br>
+				<input type="text" name="fname" value="<?php echo $user['fname']; ?>" class="u-full-width"/><br><br>
 			</div>
 			<div class="six columns">
 				<label for="lname">Last Name</label>
-				<input type="text" name="lname" value="<?php echo $user['lname']; ?>" class="u-full-width"><br><br>
+				<input type="text" name="lname" value="<?php echo $user['lname']; ?>" class="u-full-width"/><br><br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="six columns">
 				<label for="email">Email</label>
-				<input type="text" name="email" value="<?php echo $user['email']; ?>" class="u-full-width"><br><br>
+				<input type="text" name="email" value="<?php echo $user['email']; ?>" class="u-full-width"/><br><br>
 			</div>
 			<div class="six columns">
 				<label for="group">Permissions</label>

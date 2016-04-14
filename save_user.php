@@ -9,14 +9,22 @@ if($_SESSION['permissions'] === 'admin') {
 	$email = filter_input(INPUT_POST, 'email');
 	$group = filter_input(INPUT_POST, 'group');
 
-	$update_user = "UPDATE Users
-	SET fname=:fname, lname=:lname, email=:email, group=:group
-	WHERE username=:username";
+	$update_user = "UPDATE users
+	SET fname = :fname, 
+		lname = :lname, 
+		email = :email, 
+		permissions = :group
+	WHERE username = :username";
 	$statement = $conn->prepare($update_user);
-	$statement->execute(array(":fname"=>$fname, ":lname"=>$lname, ":email"=>$email, ":group"=>$group, ":username"=>$username));
+	$statement->bindValue(":username", $username);
+	$statement->bindValue(":fname", $fname);
+	$statement->bindValue(":lname", $lname);
+	$statement->bindValue(":email", $email);
+	$statement->bindValue(":group", $group);
+	$statement->execute();
 	$statement->closeCursor();
 
-//	include('users.php');
+	include('users.php');
 }
 
 else {
