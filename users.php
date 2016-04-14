@@ -45,8 +45,8 @@ if(isset($_SESSION['username'])){
 			<td><?php echo $user['fname']; ?></td>
 			<td><?php echo $user['lname']; ?></td>
 			<td><?php echo $user['email']; ?></td>
-			<td><?php echo $user['permissions']; ?></td>
 			<td><?php echo $user['groupName']; ?></td>
+			<td><?php echo $user['permissions']; ?></td>
 			
 			<td>
 				<form action="edit_user.php" method="post">

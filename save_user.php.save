@@ -10,11 +10,17 @@ if($_SESSION['permissions'] === 'admin') {
 	$email = filter_input(INPUT_POST, 'email');
 	$permissions = filter_input(INPUT_POST, 'permissions');
 
-	$update_user = "UPDATE Users
+	$update_user = "UPDATE users
 	SET fname = :fname, 
 		lname = :lname, 
 		groupName = :groupName,
-		email = :email, 
+UPDATE users
+        SET fname = :fname,
+                lname = :lname,
+                groupName = :groupName,
+                email = :email,
+                permissions = :permissions
+        WHERE username = :username		email = :email, 
 		permissions = :permissions
 	WHERE username = :username";
 	$statement = $conn->prepare($update_user);
