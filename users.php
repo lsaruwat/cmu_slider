@@ -34,6 +34,7 @@ if(isset($_SESSION['username'])){
 			<th>Last</th>
 			<th>Email</th>
 			<th>Group</th>
+			<th>Permissions</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -45,24 +46,7 @@ if(isset($_SESSION['username'])){
 			<td><?php echo $user['lname']; ?></td>
 			<td><?php echo $user['email']; ?></td>
 			<td><?php echo $user['permissions']; ?></td>
-			
-			<!-- TODO: Dropdown menu for each user possible, but
-					   maybe easier to create edit_user.php and
-					   edit one user at a time? Versus checking
-					   whether any of the selects have been modified:
-					   http://www.sitepoint.com/detect-html-form-changes/
-			<td>
-				<select name="echo $user['username']" id="echo $user['username']">
-					<?php /* foreach($conn->query('SELECT type from Permissions') as $row) {
-						if($user['permissions'] != $row['type'])
-							echo "<option value=\"" . $row['type'] . "\">" . $row['type'] . "</option>";
-						else
-							echo "<option selected value=\"" . $row['type'] . "\">" . $row['type'] . "</option>";
-					}
-					*/ ?>
-				</select>
-			</td>
-			-->
+			<td><?php echo $user['groupName']; ?></td>
 			
 			<td>
 				<form action="edit_user.php" method="post">

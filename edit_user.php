@@ -31,7 +31,7 @@ if($_SESSION['permissions'] === 'admin') {
 			<div class="six columns">
 				<label for="lname">Last Name</label>
 				<input type="text" name="lname" value="<?php echo $user['lname']; ?>" class="u-full-width"/><br><br>
-			</div>
+			</div>		
 		</div>
 		<div class="row">
 			<div class="six columns">
@@ -39,8 +39,14 @@ if($_SESSION['permissions'] === 'admin') {
 				<input type="text" name="email" value="<?php echo $user['email']; ?>" class="u-full-width"/><br><br>
 			</div>
 			<div class="six columns">
-				<label for="group">Permissions</label>
-				<select name="group" id="group" class="u-full-width">
+				<label for="groupName">Group</label>
+				<input type="text" name="groupName" value="<?php echo $user['groupName']; ?>" class="u-full-width"/><br><br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns">
+				<label for="permissions">Permissions</label>
+				<select name="permissions" id="permissions" class="u-full-width">
 					<?php foreach($conn->query('SELECT type from Permissions') as $row) {
 						if($user['permissions'] != $row['type'])
 							echo "<option value='" . $row['type'] . "'>" . $row['type'] . "</option>";
