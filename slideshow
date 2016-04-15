@@ -1,0 +1,1 @@
+google-chrome http://localhost/software16/customSlide.php --enable-logging --v=1 --disable-web-security --user-data-dir

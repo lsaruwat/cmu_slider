@@ -26,7 +26,7 @@
   function ready(){
     setHeight();
     initializeSlider();
-    setInterval(getNextSlide, 7000);
+    setInterval(getNextSlide, 5000);
   }
 
   function setHeight(){
@@ -118,6 +118,19 @@
           activeSlide.setAttribute("class","prev_slide");
           nextSlide.setAttribute("class","active_slide");
           slidesContainer.append(ajaxSlide);
+          // var error = $(activeSlide).find("#errorPageContainer");
+          
+          try {
+              var error = $("li.active_slide iframe").contents().find("#main-frame-error").html();
+              if(error)console.log($(nextSlide).find("iframe")[0].getAttribute("src"));
+          }
+
+          catch(err) {
+              console.log(err.message);
+              console.log($(nextSlide).find("iframe")[0].getAttribute("src"));
+          }
+          //if(error)console.log("page not found");
+
 
         }
 
