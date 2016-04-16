@@ -14,7 +14,7 @@
     </ul>
   </div>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/jquery-2.2.3.min.js"></script>
   <script src="superslides-0.6.2/examples/javascripts/jquery.easing.1.3.js"></script>
   <script src="superslides-0.6.2/examples/javascripts/jquery.animate-enhanced.min.js"></script>
   <script src="superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
