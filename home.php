@@ -11,7 +11,7 @@ if(isset($_SESSION['username'])){
 <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 
 <div class="container">
-	
+
 	<div id="slide_options">
 		<div class="row">
 			<div class="four columns">

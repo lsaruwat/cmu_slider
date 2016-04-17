@@ -98,9 +98,10 @@ function submitSlide(e){
 
 	success : function (returnData) {
 		if(returnData.message == "Success"){
-			setTimeout(function(){location.reload();},1000);
+			//setTimeout(function(){location.reload();},1000);
 			console.log(returnData.message);
 			console.log(returnData);
+			$("#response_message").html( "<p>" + returnData.message + "</p>");
 		}
 		else {
 			$("#login_error").html("<p>"+ returnData.message + "</p>");

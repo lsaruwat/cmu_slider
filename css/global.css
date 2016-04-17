@@ -164,3 +164,9 @@ h1.title{
 	float: left;
 	margin-top: 0px;
 }
+
+div#response_message{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
