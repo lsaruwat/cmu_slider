@@ -10,7 +10,7 @@ $(document).ready(function() {
 function renderPreview(){
 
 	var title = $("#slide_title").val();
-	var content = CKEDITOR.instances['slide_content'].getData();	
+	var content = CKEDITOR.instances['slide_content'].getData();
 	var contentContainer = $("#content_container");
 	var slidePreview = $("#slide_preview");
 	var height = window.innerHeight;
@@ -70,13 +70,6 @@ function handleFormSubmit(e){
 
 function submitSlide(e){
 	e.preventDefault();
-
-	// var slideData = { 
-	// 	title : $("#slide_title").val(),
-	// 	content : CKEDITOR.instances['slide_content'].getData(),
-	// 	image : $("#slide_image").val(),
-	// 	url : $("#slide_url").val()
-	// };
 
 	var slideData = new FormData();
 
