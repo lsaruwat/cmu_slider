@@ -8,7 +8,7 @@ include("header.php");
 ?>
 
 <div class="row table-titles">
-	<div class='one columns'><h3>Id</h3></div>
+	<div class='one columns' style='text-align: right;'><h3>Id</h3></div>
 	<div class='one columns'><h3>Delete</h3></div>
 	<div class='two columns'><h3>Title</h3></div>
 	<div class='two columns'><h3>Content</h3></div>
@@ -26,7 +26,7 @@ if($_SESSION['permissions'] === 'admin'){
 	$rows = $psql->fetchAll();
 
 	foreach($rows as $row){
-		echo "<form method='POST' id='slide_" . $row['id'] . "'><div class='edit-slide row'><div class='one columns'>" . $row['id'] . 
+		echo "<form method='POST' id='slide_" . $row['id'] . "'><div class='edit-slide row'><div class='one columns' style='text-align: right;'>" . $row['id'] . 
 		"</div><div class='one columns'><input type='hidden' name='id' value='" . $row['id'] . "'/><input type='button' onclick='deleteSlideById(" . $row['id'] . ")' value='Delete'/></div>
 		<div class='two columns'><input type='text' name='title' value='" . $row['title'] . "' /></div><div class='two columns'><textarea name='content' rows='20' cols='20'>" . $row['content'] . "</textarea></div>
 		<div class='one columns'><input type='submit' class='slide_form' value='Update'/></div>

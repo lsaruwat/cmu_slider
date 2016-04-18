@@ -74,9 +74,9 @@ function submitSlide(e){
 	var slideData = new FormData();
 
 	//Append files infos
- jQuery.each($("#slide_picture")[0].files, function(i, file) {
-     slideData.append('file-'+i, file);
- });
+	 jQuery.each($("#slide_picture")[0].files, function(i, file) {
+	     slideData.append('file-'+i, file);
+	 });
 
 
 	slideData.append("title", $("#slide_title").val() );
@@ -99,14 +99,17 @@ function submitSlide(e){
 	success : function (returnData) {
 		if(returnData.message == "Success"){
 			//setTimeout(function(){location.reload();},1000);
-			console.log(returnData.message);
-			console.log(returnData);
-			$("#response_message").html( "<p>" + returnData.message + "</p>");
+			$("#response_message").html( "<p>" + returnData.feedback + "</p>");
+			$("#slide_form")[0].reset();
+
+			//this resets the wysiwig editors content as well
+			for ( instance in CKEDITOR.instances ){
+		        CKEDITOR.instances[instance].updateElement();
+		        CKEDITOR.instances[instance].setData('');
+		    }
 		}
 		else {
-			$("#login_error").html("<p>"+ returnData.message + "</p>");
-			console.log(returnData.message);
-			console.log(returnData);
+			$("#response_message").html("<span class='error'><p>"+ returnData.feedback + "</p></span>");
 		}
 
 	}
