@@ -18,7 +18,7 @@
 
 <script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/global.js"></script>
-<script src="js/<?php echo $pageTitle; ?>.js"></script>
+<script src="js/<?php echo str_ireplace(" ","-",$pageTitle); ?>.js"></script>
 
 <!-- end of javascript linking -->
 
