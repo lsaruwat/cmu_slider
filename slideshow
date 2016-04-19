@@ -1,1 +1,3 @@
-google-chrome --kiosk http://localhost/cmu_slider/customSlide.php --enable-logging --v=1 --disable-web-security --user-data-dir
+google-chrome --disable-infobars --kiosk --incognito https://localhost/cmu_slider/customSlide.php --enable-logging --v=1 --disable-web-security --user-data-dir --window-position=0,0
+
+#google-chrome --kiosk http://localhost/cmu_slider/customSlide.php --enable-logging --v=1
