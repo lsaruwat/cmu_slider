@@ -169,3 +169,13 @@ div#response_message, .response_message{
 	font-weight: bold;
 	text-align: center;
 }
+
+div#bottom-nav{
+	text-align: center;
+	margin-top: 20px;
+}
+
+div#bottom-nav a{
+	font-size: 20px;
+	margin-right: 10px;
+}
