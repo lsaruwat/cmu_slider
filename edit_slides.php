@@ -53,13 +53,11 @@ function deleteSlideById(id){
 		success : function (returnData) {
 			if(returnData.message == "Success"){
 				//setTimeout(function(){location.reload();},1000);
-				console.log(returnData.message);
-				console.log(returnData);
+
+				$("#response_message").html( "<p>" + returnData.feedback + "</p>");
 			}
 			else {
-				$("#login_error").html("<p>"+ returnData.message + "</p>");
-				console.log(returnData.message);
-				console.log(returnData);
+				$("#response_message").html( "<p>" + returnData.feedback + "</p>");
 			}
 
 		}
@@ -72,20 +70,20 @@ function updateSlideById(e){
 	
 	var formData = $(this).serialize();
 	console.log(formData);
-	
+	var thing = $(this);
 	$.ajax({
 		url : "updateSlide.php",
 		dataType : 'json',
 		type : 'POST',
 		data : formData,
+		row : $(this),
 
-		success : function (returnData) {
+		success : function (returnData, thing) {
 			if(returnData.message == "Success"){
-				console.log(returnData);
+				this.row.append( "<p class='response_message'>" + returnData.feedback + "</p>");
 			}
 			else {
-				$("#login_error").html("<p>"+ returnData.message + "</p>");
-				console.log(returnData);
+				this.row.append( "<p class='response_message error'>" + returnData.feedback + "</p>");
 			}
 
 		}

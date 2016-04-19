@@ -47,7 +47,6 @@ html{
 	position: relative;
 	color: #292929;
 	font-weight: 900;
-	background-image: url("http://coloradomesa.edu/_files/images/slider/showcase-2016-homepage.jpg");
 	background-size: cover;
 	width: 100%;
 	min-height: 500px;
@@ -165,7 +164,7 @@ h1.title{
 	margin-top: 0px;
 }
 
-div#response_message{
+div#response_message, .response_message{
 	font-size: 18px;
 	font-weight: bold;
 	text-align: center;

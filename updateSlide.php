@@ -8,6 +8,7 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 
 $message = "Failed";
+$feedback = "Failed to update slide!";
 
 if($_SESSION['permissions'] == 'admin'){
 
@@ -16,8 +17,9 @@ if($_SESSION['permissions'] == 'admin'){
 	$query = $psql->execute(array(":id"=>$id, ":title"=>$title, ":content"=>$content ));
 	
 	$message = "Success";
+	$feedback = "Successfully updated slide " . $id;
 }
 
-echo json_encode(array("message"=>$message, "id"=>$id, "title"=>$title, "content"=>$content, "post"=>$_POST));
+echo json_encode(array("message"=>$message, "feedback"=>$feedback));
 ?>
 

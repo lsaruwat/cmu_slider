@@ -45,6 +45,7 @@ session_start();
         dataType : 'json',
         type : 'POST',
         data : {},
+        index : i,
         success : function (returnData) {
           if(returnData.message == "Success"){
             var nextSlideData = returnData.slide[0];
@@ -64,9 +65,11 @@ session_start();
             var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
             $("ul.slides-container").append(nextSlide);
             //due to the asynchronous nature of ajax the next 3 lines always throw exactly 2 errors. Fixing the problem is more of a headache than I realized. It is broken but works
-            $("li")[0].setAttribute("class", "prev_slide");
-            $("li")[1].setAttribute("class", "active_slide");
-            $("li")[2].setAttribute("class", "next_slide");
+            if(this.index === 2){
+              $("li")[0].setAttribute("class", "prev_slide");
+              $("li")[1].setAttribute("class", "active_slide");
+              $("li")[2].setAttribute("class", "next_slide");
+            }
           }
         }
 
@@ -103,11 +106,11 @@ session_start();
             iframeTag = "<iframe src='" + nextSlideData.url + "' ></iframe>";
           }
 
-          else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
+          else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='assets/default.jpg'/>";
           var ajaxSlide =  "<li class='next_slide'>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
 
           //this is a hardcoded channel 2 iframe. Ajax doesn't work so this is all I could come up with
-          if(slideNumber%2===0){
+          if(slideNumber%5===0){
             ajaxSlide =  "<li class='next_slide' id='channel2'><iframe src='http://concerto.coloradomesa.edu/concerto/screen/index.php?mac=00:00:00:00:0B:AD/'></iframe></li>";
             //replaceContent();
           }
