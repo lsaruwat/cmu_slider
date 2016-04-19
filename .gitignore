@@ -38,3 +38,6 @@ serverConfig.php
 
 # non asset images
 img/*
+
+#custom error logs
+log.txt

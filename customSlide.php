@@ -60,6 +60,7 @@
             else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
             var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
             $("ul.slides-container").append(nextSlide);
+            //due to the asynchronous nature of ajax the next 3 lines always throw exactly 2 errors. Fixing the problem is more of a headache than I realized. It is broken but works
             $("li")[0].setAttribute("class", "prev_slide");
             $("li")[1].setAttribute("class", "active_slide");
             $("li")[2].setAttribute("class", "next_slide");
@@ -120,16 +121,7 @@
           slidesContainer.append(ajaxSlide);
           // var error = $(activeSlide).find("#errorPageContainer");
           
-          try {
-              var error = $("li.active_slide iframe").contents().find("#main-frame-error").html();
-              if(error)console.log($(nextSlide).find("iframe")[0].getAttribute("src"));
-          }
-
-          catch(err) {
-              console.log(err.message);
-              console.log($(nextSlide).find("iframe")[0].getAttribute("src"));
-          }
-          //if(error)console.log("page not found");
+          checkForErrors(nextSlide);
 
 
         }
@@ -150,6 +142,24 @@ function replaceContent(){
   $(".next_slide").html( content );
   console.log( content );
   $(this).remove();
+}
+
+function checkForErrors(nextSlide){
+
+  try {
+    var error = $("li.active_slide iframe").contents().find("#main-frame-error").html();
+    if(error){
+      var errorUrl = $(nextSlide).find("iframe")[0].getAttribute("src");
+      console.log("page failed @"+errorUrl);
+      $.post( "logError.php", { url: errorUrl} );
+    }
+  }
+
+  catch(err) {
+    console.log(err.message);
+    console.log($(nextSlide).find("iframe")[0].getAttribute("src"));
+  }
+          
 }
 
 
