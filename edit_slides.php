@@ -24,7 +24,7 @@ if($_SESSION['permissions'] === "admin"){
 
 	foreach($rows as $row){
 		echo "<form method='POST' id='slide_" . $row['id'] . "'><div class='edit-slide row'><div class='one columns' style='text-align: right;'>" . $row['id'] . 
-		"</div><div class='one columns'><input type='hidden' name='id' value='" . $row['id'] . "'/><input type='button' onclick='deleteSlideById(" . $row['id'] . ")' value='Delete'/></div>
+		"</div><div class='one columns'><input type='hidden' name='id' value='" . $row['id'] . "'/><input type='button' onclick='deleteSlideById(event," . $row['id'] . ")' value='Delete'/></div>
 		<div class='two columns'><input type='text' name='title' value='" . $row['title'] . "' /></div><div class='two columns'><textarea name='content' rows='20' cols='20'>" . $row['content'] . "</textarea></div>
 		<div class='one columns'><input type='submit' class='slide_form' value='Update'/></div>
 		<div class='two columns'> " . $row['image'] . "</div><div class='three columns'> " . $row['url'] .
@@ -40,8 +40,9 @@ function addListener(){
 	$("form").on("submit", updateSlideById);
 }
 
-function deleteSlideById(id){
+function deleteSlideById(e, id){
 	console.log(id);
+	var row = $(e.target).parent().parent(); //parentception
 	$.ajax({
 		url : "deleteSlide.php",
 		dataType : 'json',
@@ -49,15 +50,15 @@ function deleteSlideById(id){
 		data : {
 			id : id
 		},
+		row : row,
 
 		success : function (returnData) {
 			if(returnData.message == "Success"){
-				//setTimeout(function(){location.reload();},1000);
-
-				$("#response_message").html( "<p>" + returnData.feedback + "</p>");
+				setTimeout(function(){location.reload();},1000);
+				this.row.append( "<p class='response_message'>" + returnData.feedback + "</p>");
 			}
 			else {
-				$("#response_message").html( "<p>" + returnData.feedback + "</p>");
+				this.row.append( "<p class='response_message error'>" + returnData.feedback + "</p>");
 			}
 
 		}
@@ -80,6 +81,7 @@ function updateSlideById(e){
 
 		success : function (returnData, thing) {
 			if(returnData.message == "Success"){
+				setTimeout(function(){location.reload();},1000);
 				this.row.append( "<p class='response_message'>" + returnData.feedback + "</p>");
 			}
 			else {
