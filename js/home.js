@@ -1,4 +1,4 @@
-
+var imageUrl = "assets/default.jpg";
 $(document).ready(function() {
 	CKEDITOR.replace('slide_content'); // replace textarea with nice editor
 	$("#preview_button").on("click", renderPreview);
@@ -15,7 +15,7 @@ function renderPreview(){
 	var slidePreview = $("#slide_preview");
 	var height = window.innerHeight;
 
-	slidePreview.attr("style", "display: inline-block; height:" + height + "px;");
+	slidePreview.attr("style", "display: inline-block; height:" + height + "px; background-image: url('" + imageUrl + "');" );
 	contentContainer.html("<h1 class='title_preview'>" + title + "</h1>");
 	contentContainer.append("<p class='content_preview'>" + content + "</p>");
 
@@ -116,3 +116,17 @@ function submitSlide(e){
 
 });
 }
+
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            	imageUrl = e.target.result;
+                // $('#slide_preview')
+                //     .attr('style', "background-image: url('" + e.target.result + "');");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }

@@ -55,7 +55,7 @@ else{
 							":permissions"=>$data['permissions']
 							));
 	if($query)$status = "inserted";
-	$status = "not inserted";
+	else $status = "not inserted";
 
 	//check to make sure the query happened!!!
 }

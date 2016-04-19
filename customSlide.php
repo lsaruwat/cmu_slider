@@ -60,7 +60,7 @@ session_start();
               iframeTag = "<iframe src='" + nextSlideData.url + "' ></iframe>";
             }
 
-            else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='http://www.coloradomesa.edu//_files/images/news/campus.jpg'/>";
+            else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='assets/default.jpg'/>";
             var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
             $("ul.slides-container").append(nextSlide);
             //due to the asynchronous nature of ajax the next 3 lines always throw exactly 2 errors. Fixing the problem is more of a headache than I realized. It is broken but works

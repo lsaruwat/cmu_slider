@@ -4,7 +4,7 @@ include("db/connect.php");
 
 $pageTitle = "edit slides";
 include("header.php");
-
+if($_SESSION['permissions'] === "admin"){
 ?>
 
 <div class="row table-titles">
@@ -16,9 +16,6 @@ include("header.php");
 	<div class='five columns'><h3>Image/Url</h3></div>
 </div>
 <?php
-
-if($_SESSION['permissions'] === 'admin'){
-
 
 	$sql = "SELECT * FROM slide ORDER BY id";
 	$psql = $conn->prepare($sql);
@@ -101,3 +98,9 @@ function updateSlideById(e){
 
 }
 //endif
+
+else {
+	$loginURL = "login_page.php";
+	echo "Please <a href='$loginURL'>login</a> to continue";
+
+}

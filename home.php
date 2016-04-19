@@ -52,7 +52,7 @@ if(isset($_SESSION['username'])){
 		<div class="row optional picture">
 			<div class="twelve columns">
 				<label for="slide_picture">Upload Picture</label>
-					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width"/>
+					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width" onchange="readURL(this);" />
 			</div>
 		</div>
 
