@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include("functions.php");
 include("db/connect.php");
@@ -16,8 +17,14 @@ foreach($row as $thing){
 }
 
 $randomIndex = rand(0,count($idArray)-1);
-
 $id = $idArray[$randomIndex];
+
+while($_SESSION['previous_id'] == $id){
+	$randomIndex = rand(0,count($idArray)-1);
+	$id = $idArray[$randomIndex];
+}
+
+$_SESSION['previous_id'] = $id;
 
 $sql = "SELECT * FROM slide WHERE id=:id";
 $psql = $conn->prepare($sql);
