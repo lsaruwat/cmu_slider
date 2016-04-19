@@ -84,7 +84,6 @@ include("footer.php");
 else {
 	$loginURL = "login_page.php";
 	echo "Please <a href='$loginURL'>login</a> to continue";
-
 }
 
 ?>

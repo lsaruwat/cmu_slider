@@ -19,6 +19,7 @@ include("header.php");
 			<label for="password">Password</label>
 			<input type="password" name="password" id="password" class="u-full-width login_input"/>
 			<br/>
+			<a href="passwordReset.php">Forgot Password?</a>
 			<center><input type="submit" value="Submit" id="login_submit" class="button-primary login_button"/></center>
 			<div id="login_error" class="error"></div>
 		</form>
