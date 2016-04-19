@@ -40,4 +40,4 @@ serverConfig.php
 img/*
 
 #custom error logs
-log.txt
+logs/log-*-*-*.txt
