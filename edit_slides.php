@@ -23,12 +23,30 @@ if($_SESSION['permissions'] === "admin"){
 	$rows = $psql->fetchAll();
 
 	foreach($rows as $row){
-		echo "<form method='POST' id='slide_" . $row['id'] . "'><div class='edit-slide row'><div class='one columns' style='text-align: right;'>" . $row['id'] . 
-		"</div><div class='one columns'><input type='hidden' name='id' value='" . $row['id'] . "'/><input type='button' onclick='deleteSlideById(event," . $row['id'] . ")' value='Delete'/></div>
-		<div class='two columns'><input type='text' name='title' value='" . $row['title'] . "' /></div><div class='two columns'><textarea name='content' rows='20' cols='20'>" . $row['content'] . "</textarea></div>
-		<div class='one columns'><input type='submit' class='slide_form' value='Update'/></div>
-		<div class='two columns'> " . $row['image'] . "</div><div class='three columns'> " . $row['url'] .
-		 "</div></div></form>";
+		?>
+		<form method='POST' id="slide_<?php echo$row['id'];?>">
+		<div class='edit-slide row'>
+			<div class='one columns' style='text-align: right;'>
+			<?php echo $row['id'];?> 
+			</div>
+			<div class='one columns'>
+				<input type='hidden' name='id' value="<?php echo $row['id'];?>"/>
+				<input type='button' onclick="deleteSlideById(event,<?php echo $row['id'];?>)" value='Delete'/>
+			</div>
+			<div class='two columns'>
+				<input type='text' name='title' value="<?php echo $row['title'];?>" />
+			</div>
+			<div class='two columns'>
+				<textarea name='content' rows='20' cols='20'><?php echo $row['content'];?></textarea>
+			</div>
+			<div class='one columns'>
+				<input type='submit' class='slide_form' value='Update'/>
+			</div>
+			<div class='two columns'><?php echo $row['image'];?></div>
+			<div class='three columns'> <?php echo $row['url'];?></div>
+		</div>
+		</form>
+	<?php
 	}
 include("footer.php");
 
