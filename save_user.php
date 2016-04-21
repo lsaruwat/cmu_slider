@@ -2,7 +2,7 @@
 session_start();
 include("db/connect.php");
 
-if($_SESSION['permissions'] === 'admin') {
+if($_SESSION['permissions'] === 'admin' || $_SESSION['permissions'] === "superuser") {
 	$username = filter_input(INPUT_POST, 'username');
 	$fname = filter_input(INPUT_POST, 'fname');
 	$lname = filter_input(INPUT_POST, 'lname');

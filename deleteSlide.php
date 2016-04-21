@@ -8,7 +8,7 @@ $data = $_POST['data'];
 $message = "Failed";
 $feedback = "Failed to delete slide" . $id;
 
-if($_SESSION['permissions'] == 'admin'){
+if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'superuser'){
 
 	$sql = "SELECT image FROM slide WHERE id=:id";
 	$psql = $conn->prepare($sql);

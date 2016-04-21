@@ -14,6 +14,15 @@ include("header.php");
 			
 			<div class="row">
 				<div class="six columns">
+					<p class="key-explain"> A Key is required to reset any passwords. If you aren't sure what the key is contact the content management superuser(Ronda)</p>
+				</div>
+				<div class="six columns">
+					<label for="key">Key</label>
+					<input type="text" name="key" id="key" class="u-full-width"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="six columns">
 					<label for="username">Username</label>
 					<input type="text" name="username" id="username" class="u-full-width"/>
 				</div>

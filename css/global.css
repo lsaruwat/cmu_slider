@@ -175,3 +175,8 @@ div#bottom-nav a{
 	font-size: 20px;
 	margin-right: 10px;
 }
+
+p.key-explain{
+	font-size: 16px;
+	font-weight: bold;
+}

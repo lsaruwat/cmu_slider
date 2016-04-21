@@ -4,7 +4,7 @@ include("db/connect.php");
 
 $pageTitle = "edit slides";
 include("header.php");
-if($_SESSION['permissions'] === "admin"){
+if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superuser"){
 ?>
 
 <div class="row table-titles">
@@ -24,7 +24,7 @@ if($_SESSION['permissions'] === "admin"){
 
 	foreach($rows as $row){
 		?>
-		<form method='POST' id="slide_<?php echo$row['id'];?>">
+		<form method='POST' id="slide_<?php echo $row['id'];?>">
 		<div class='edit-slide row'>
 			<div class='one columns' style='text-align: right;'>
 			<?php echo $row['id'];?> 

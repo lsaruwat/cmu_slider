@@ -10,7 +10,7 @@ $content = $_POST['content'];
 $message = "Failed";
 $feedback = "Failed to update slide!";
 
-if($_SESSION['permissions'] == 'admin'){
+if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] === "superuser"){
 
 	$sql = "UPDATE slide SET title=:title, content=:content WHERE id=:id";
 	$psql = $conn->prepare($sql);

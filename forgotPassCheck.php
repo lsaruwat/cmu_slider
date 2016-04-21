@@ -11,6 +11,7 @@ $username = $data['username'];
 $email = $data['email'];
 $password = $data['password'];
 $confirm = $data['confirm'];
+$key = $data['key'];
 
 $sql = "SELECT * FROM users 
 		WHERE username=:username 

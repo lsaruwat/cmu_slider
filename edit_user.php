@@ -7,7 +7,7 @@ include("header.php");
 
 //TODO: Currently hard-coded because HTTP_REFERER includes whole link.
 //if($_SERVER['HTTP_REFERER'] == 'http://baldr.whatever212.net/software16/users.php') {
-if($_SESSION['permissions'] === 'admin') {
+if($_SESSION['permissions'] === 'admin' || $_SESSION['permissions'] === "superuser") {
 	$username = filter_input(INPUT_POST, 'username');
 	$user_query = "SELECT *
 	FROM Users
