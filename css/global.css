@@ -180,3 +180,8 @@ p.key-explain{
 	font-size: 16px;
 	font-weight: bold;
 }
+
+div.columns input, div.columns textarea{
+	max-width: 104%;
+
+}

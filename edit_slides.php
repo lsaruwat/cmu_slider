@@ -26,24 +26,36 @@ if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superus
 		?>
 		<form method='POST' id="slide_<?php echo $row['id'];?>">
 		<div class='edit-slide row'>
-			<div class='one columns' style='text-align: right;'>
-			<?php echo $row['id'];?> 
-			</div>
+			
 			<div class='one columns'>
+				<input type="checkbox" name="enabled" value="<?php echo (bool)$row['enabled'];?>"><?php echo $row['enabled'];?> Enabled
+			</div>
+
+			<div class='one columns' style="margin-left: 0px;">
 				<input type='hidden' name='id' value="<?php echo $row['id'];?>"/>
 				<input type='button' onclick="deleteSlideById(event,<?php echo $row['id'];?>)" value='Delete'/>
 			</div>
+			
+			<div class='one columns'>
+				<input type='submit' class='slide_form' value='Update'/>
+			</div>
+
+			<div class='one columns'>
+				<input type="date" name="startDate" value="<?php echo $row['startDate'];?>"/>
+			</div>
+			
+			<div class='one columns'>
+				<input type="date" name="endDate" value="<?php echo $row['endDate'];?>"/>
+			</div>
+
 			<div class='two columns'>
 				<input type='text' name='title' value="<?php echo $row['title'];?>" />
 			</div>
 			<div class='two columns'>
 				<textarea name='content' rows='20' cols='20'><?php echo $row['content'];?></textarea>
 			</div>
-			<div class='one columns'>
-				<input type='submit' class='slide_form' value='Update'/>
-			</div>
-			<div class='two columns'><?php echo $row['image'];?></div>
-			<div class='three columns'> <?php echo $row['url'];?></div>
+			<div class='two columns'><input type="text" name="img" id="img" value="<?php echo $row['image'];?>" /> </div>
+			<div class='two columns'><input type="text" name="url" id="url" value="<?php echo $row['url'];?>" /> </div>
 		</div>
 		</form>
 	<?php

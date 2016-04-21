@@ -31,14 +31,14 @@ if(isset($_SESSION['username'])){
 		<div class="row optional url">
 			<div class="twelve columns">
 				<label for="slide_url">Website URL</label>
-					<input type="text" name="slide_url" id="slide_url" class="u-full-width"/>
+				<input type="text" name="slide_url" id="slide_url" class="u-full-width"/>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="twelve columns">
 				<label for="slide_title">Title</label>
-					<input type="text" name="slide_title" id="slide_title" class="u-full-width"/>
+				<input type="text" name="slide_title" id="slide_title" class="u-full-width"/>
 			</div>
 		</div>
 
@@ -52,7 +52,19 @@ if(isset($_SESSION['username'])){
 		<div class="row optional picture">
 			<div class="twelve columns">
 				<label for="slide_picture">Upload Picture</label>
-					<input type="file" name="slide_picture" id="slide_picture" class="u-full-width" onchange="readURL(this);" />
+				<input type="file" name="slide_picture" id="slide_picture" class="u-full-width" onchange="readURL(this);" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="six columns">
+				<label for="startDate">Start Date</label>
+				<input type="date" class="date" id="startDate" name="startDate"/>
+			</div>
+
+			<div class="six columns">
+				<label for="endDate">End Date</label>
+				<input type="date" class="date" id="endDate" name="endDate"/>
 			</div>
 		</div>
 
@@ -62,7 +74,7 @@ if(isset($_SESSION['username'])){
 			</div>
 
 			<div class="six columns">
-				<input type="submit" value="Submit" class="button-primary" id="submit_slide_button"/>
+				<input type="submit" value="Submit" class="button-primary" id="submit_slide_button" style="float: right;"/>
 			</div>
 		</div>
 	

@@ -1,4 +1,5 @@
 var imageUrl = "assets/default.jpg";
+
 $(document).ready(function() {
 	CKEDITOR.replace('slide_content'); // replace textarea with nice editor
 	$("#preview_button").on("click", renderPreview);
@@ -83,6 +84,8 @@ function submitSlide(e){
 	slideData.append("content", CKEDITOR.instances['slide_content'].getData() );
 	// slideData.append("image", $("#slide_image").val() );
 	slideData.append("url", $("#slide_url").val() );
+	slideData.append("startDate", $("#startDate").val() );
+	slideData.append("endDate", $("#endDate").val() );
 
 
 	console.log(slideData);

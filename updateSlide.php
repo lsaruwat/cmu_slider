@@ -6,15 +6,19 @@ include("db/connect.php");
 $id = (int)$_POST['id'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+$startDate = $_POST['startDate'];
+$endDate = $_POST['endDate'];
+(bool)$enabled = $_POST['enabled'];
+
 
 $message = "Failed";
 $feedback = "Failed to update slide!";
 
 if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] === "superuser"){
 
-	$sql = "UPDATE slide SET title=:title, content=:content WHERE id=:id";
+	$sql = "UPDATE slide SET title=:title, content=:content, startDate=:startDate, endDate=:endDate, enabled=:enabled WHERE id=:id";
 	$psql = $conn->prepare($sql);
-	$query = $psql->execute(array(":id"=>$id, ":title"=>$title, ":content"=>$content ));
+	$query = $psql->execute(array(":id"=>$id, ":title"=>$title, ":content"=>$content, ":startDate"=>$startDate, ":endDate"=>$endDate, ":enabled"=>$enabled ));
 	
 	$message = "Success";
 	$feedback = "Successfully updated slide " . $id;
