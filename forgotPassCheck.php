@@ -25,19 +25,30 @@ if($row != false) {
 		$salt = createSalt();
 		$passwordHashed = hashPassword($password, $salt);
 		
-		$sql = "UPDATE Users
-		SET salt=:salt,
-			password=:password
-		WHERE username=:username";
+		$sql = "SELECT * FROM `keys`";
 		$psql = $conn->prepare($sql);
-		$query = $psql->execute(array(":salt"=>$salt, ":password"=>$passwordHashed, ":username"=>$username));
-		
-		if($query)
-			$message = "Password updated successfully";
-		else 
-			$message = "Error in updating password";
-		
-		$psql->closeCursor();
+		$psql->execute();
+		$row = $psql->fetch();
+		$keySalt = $row['salt'];
+		$keyHashed = hashPassword($key, $keySalt);
+		if($row['key'] == $keyHashed){
+
+
+			$sql = "UPDATE Users
+			SET salt=:salt,
+				password=:password
+			WHERE username=:username";
+			$psql = $conn->prepare($sql);
+			$query = $psql->execute(array(":salt"=>$salt, ":password"=>$passwordHashed, ":username"=>$username));
+			
+			if($query)
+				$message = "Password updated successfully";
+			else 
+				$message = "Error in updating password";
+			
+			$psql->closeCursor();
+		}
+		else $message = "Incorrect Key!";
 	}
 	else
 		$message = "Passwords do not match";

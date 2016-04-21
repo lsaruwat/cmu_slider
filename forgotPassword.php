@@ -18,7 +18,7 @@ include("header.php");
 				</div>
 				<div class="six columns">
 					<label for="key">Key</label>
-					<input type="text" name="key" id="key" class="u-full-width"/>
+					<input type="password" name="key" id="key" class="u-full-width"/>
 				</div>
 			</div>
 			<div class="row">
