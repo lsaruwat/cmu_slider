@@ -13,7 +13,7 @@ $password = $data['password'];
 $confirm = $data['confirm'];
 $key = $data['key'];
 
-$sql = "SELECT * FROM users 
+$sql = "SELECT * FROM Users 
 		WHERE username=:username 
 		AND email=:email";
 $psql = $conn->prepare($sql);
