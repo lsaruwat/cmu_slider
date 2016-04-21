@@ -24,7 +24,7 @@ function submitForm(e){
 				$("#feedback_message").html("<p>Password changed successfully</p>");
 				
 				window.setTimeout(function(){
-					window.location = "home.php";
+					window.location = "login_page.php";
 				}, 1000);
 			}
 			else {
