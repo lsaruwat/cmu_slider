@@ -29,7 +29,7 @@ session_start();
   function ready(){
     setHeight();
     initializeSlider();
-    setInterval(getNextSlide, 5000);
+    setInterval(getNextSlide, 10000);
   }
 
   function setHeight(){
@@ -65,11 +65,9 @@ session_start();
             var nextSlide = "<li>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
             $("ul.slides-container").append(nextSlide);
             //due to the asynchronous nature of ajax the next 3 lines always throw exactly 2 errors. Fixing the problem is more of a headache than I realized. It is broken but works
-            if(this.index === 2){
               $("li")[0].setAttribute("class", "prev_slide");
               $("li")[1].setAttribute("class", "active_slide");
               $("li")[2].setAttribute("class", "next_slide");
-            }
           }
         }
 

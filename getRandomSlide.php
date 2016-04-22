@@ -16,25 +16,15 @@ foreach($row as $thing){
 	$idArray[] = $thing['id'];
 }
 
-if($_SESSION['previous_index'] >= 0 && $_SESSION['previous_index'] < count($idArray)){
-	$_SESSION['previous_index']++;
-	$id = $idArray[$_SESSION['previous_index']];
+$randomIndex = rand(0,count($idArray)-1);
+$id = $idArray[$randomIndex];
+
+while($_SESSION['previous_id'] == $id){
+	$randomIndex = rand(0,count($idArray)-1);
+	$id = $idArray[$randomIndex];
 }
 
-else{
-	$id = $idArray[0];
-	$_SESSION['previous_index'] = 0;
-}
-
-// $randomIndex = rand(0,count($idArray)-1);
-// $id = $idArray[$randomIndex];
-
-// while($_SESSION['previous_id'] == $id){
-// 	$randomIndex = rand(0,count($idArray)-1);
-// 	$id = $idArray[$randomIndex];
-// }
-
-//$_SESSION['previous_id'] = $id;
+$_SESSION['previous_id'] = $id;
 
 $sql = "SELECT * FROM slide WHERE id=:id";
 $psql = $conn->prepare($sql);
