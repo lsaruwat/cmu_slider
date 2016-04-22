@@ -5,17 +5,6 @@ include("db/connect.php");
 $pageTitle = "edit slides";
 include("header.php");
 if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superuser"){
-?>
-
-<div class="row table-titles">
-	<div class='one columns' style='text-align: right;'><h3>Id</h3></div>
-	<div class='one columns'><h3>Delete</h3></div>
-	<div class='two columns'><h3>Title</h3></div>
-	<div class='two columns'><h3>Content</h3></div>
-	<div class='one columns'><h3>Update</h3></div>
-	<div class='five columns'><h3>Image/Url</h3></div>
-</div>
-<?php
 
 	$sql = "SELECT * FROM slide ORDER BY id";
 	$psql = $conn->prepare($sql);

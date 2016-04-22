@@ -29,7 +29,7 @@ session_start();
   function ready(){
     setHeight();
     initializeSlider();
-    setInterval(getNextSlide, 10000);
+    setInterval(getNextSlide, 3000);
   }
 
   function setHeight(){
@@ -77,7 +77,25 @@ session_start();
 
   function getNextSlide(){
     setHeight();
+    if(slideNumber%5===0){
+            ajaxSlide =  "<li class='next_slide' id='channel2'><iframe src='http://concerto.coloradomesa.edu/concerto/screen/index.php?mac=00:00:00:00:0B:AD/'></iframe></li>";
+            //replaceContent();
+            var slidesContainer = $("ul.slides-container");
 
+            var prevSlide = $("ul.slides-container li")[0];
+            var activeSlide = $("ul.slides-container li")[1];
+            var nextSlide = $("ul.slides-container li")[2];
+
+            
+            prevSlide.remove();
+            activeSlide.setAttribute("class","prev_slide");
+            nextSlide.setAttribute("class","active_slide");
+            slidesContainer.append(ajaxSlide);
+            // var error = $(activeSlide).find("#errorPageContainer");
+            
+            checkForErrors(nextSlide);
+          }
+    else{
     $.ajax({
       url : "getSlide.php",
       dataType : 'json',
@@ -87,7 +105,7 @@ session_start();
 
       success : function (returnData) {
         if(returnData.message == "Success"){
-          //console.log(returnData);
+          console.log(returnData);
           var nextSlideData = returnData.slide[0];
 
 
@@ -106,12 +124,6 @@ session_start();
 
           else if (nextSlideData.url === "" && nextSlideData.image === "")imageTag="<img src='assets/default.jpg'/>";
           var ajaxSlide =  "<li class='next_slide'>" + imageTag + iframeTag + "<div class='content_container'><h1>" + nextSlideData.title + "</h1><p>" + nextSlideData.content + "</p></div></li>";
-
-          //this is a hardcoded channel 2 iframe. Ajax doesn't work so this is all I could come up with
-          if(slideNumber%5===0){
-            ajaxSlide =  "<li class='next_slide' id='channel2'><iframe src='http://concerto.coloradomesa.edu/concerto/screen/index.php?mac=00:00:00:00:0B:AD/'></iframe></li>";
-            //replaceContent();
-          }
           var slidesContainer = $("ul.slides-container");
 
           var prevSlide = $("ul.slides-container li")[0];
@@ -137,6 +149,7 @@ session_start();
       }
 
     });
+  }
   slideNumber++;
   }
 

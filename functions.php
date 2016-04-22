@@ -20,7 +20,6 @@ function hashPassword($password, $salt){
 
 
 function usernameExists($username, $conn){
-
 	$sql = "SELECT username FROM users WHERE username=:username";
 	$psql = $conn->prepare($sql);
 	$psql->execute(array(":username"=>$username));
@@ -47,6 +46,28 @@ function insertUser($user, $conn){
 							":group"=>$user['group'],
 							":permissions"=>$user['permissions']
 							));
+}
+
+function getSlideById($id){
+	global $conn;
+	$sql = "SELECT * FROM slide WHERE id=:id";
+	$psql = $conn->prepare($sql);
+	$query = $psql->execute(array(":id"=>$id));
+	$row = $psql->fetchAll();
+	return $row;
+}
+
+function expired($slide){
+	global $conn;
+	$today = new DateTime();
+	if ($today >= new DateTime($slide['startDate']) && $today <= new DateTime($slide['endDate']) ) {
+		return false;
+	}
+	else return true;
+}
+
+function isEnabled($slide){
+	return (bool)$slide['enabled']; 
 }
 
 

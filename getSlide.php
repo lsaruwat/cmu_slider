@@ -2,7 +2,6 @@
 session_start();
 
 include("functions.php");
-include("db/connect.php");
 
 
 $sql = "SELECT id FROM slide";
@@ -16,36 +15,28 @@ foreach($row as $thing){
 	$idArray[] = $thing['id'];
 }
 
-if($_SESSION['previous_index'] >= 0 && $_SESSION['previous_index'] < count($idArray)){
-	$_SESSION['previous_index']++;
-	$id = $idArray[$_SESSION['previous_index']];
-}
+do{
 
-else{
-	$id = $idArray[0];
-	$_SESSION['previous_index'] = 0;
-}
+	if($_SESSION['previous_index'] >= 0 && $_SESSION['previous_index'] < count($idArray)-1){
+		$_SESSION['previous_index']++;
+		$id = $idArray[$_SESSION['previous_index']];
+	}
 
-// $randomIndex = rand(0,count($idArray)-1);
-// $id = $idArray[$randomIndex];
+	else{
+		$id = $idArray[0];
+		$_SESSION['previous_index'] = 0;
+	}
 
-// while($_SESSION['previous_id'] == $id){
-// 	$randomIndex = rand(0,count($idArray)-1);
-// 	$id = $idArray[$randomIndex];
-// }
+	$slide = getSlideById($id);
+	$expired = expired($slide[0]);
 
-//$_SESSION['previous_id'] = $id;
-
-$sql = "SELECT * FROM slide WHERE id=:id";
-$psql = $conn->prepare($sql);
-$query = $psql->execute(array(":id"=>$id));
-$row2 = $psql->fetchAll();
+}while($slide[0]['enabled'] == null || $expired);
 
 $message = "FAILED";
 
-if($row2 != false){
+if($slide != false){
 	$message = "Success";
 }
 
-echo json_encode(array("id"=>$id, "idArray"=>$idArray, "message"=>$message, "slide"=>$row2));
+echo json_encode(array("id"=>$id, "expired"=>$expired, "message"=>$message, "slide"=>$slide));
 ?>
