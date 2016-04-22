@@ -8,7 +8,7 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
-(bool)$enabled = $_POST['enabled'];
+(int)$enabled = $_POST['enabled'];
 
 
 $message = "Failed";

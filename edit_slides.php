@@ -28,7 +28,8 @@ if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superus
 		<div class='edit-slide row'>
 			
 			<div class='one columns'>
-				<input type="checkbox" name="enabled" value="<?php echo (bool)$row['enabled'];?>"><?php echo $row['enabled'];?> Enabled
+				 Enabled
+				<input type="checkbox" name="enabled" value="1" <?php if($row['enabled']){echo 'checked';}?>>
 			</div>
 
 			<div class='one columns' style="margin-left: 0px;">
@@ -70,5 +71,3 @@ else {
 	echo "Please <a href='$loginURL'>login</a> to continue";
 
 }
-
-?>
