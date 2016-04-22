@@ -183,6 +183,37 @@ p.key-explain{
 }
 
 div.columns input, div.columns textarea{
-	max-width: 104%;
+	max-width: 100%;
 
+}
+
+div.columns.small input, div.columns.small textarea{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+div.columns.medium input, div.columns.medium textarea{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+div.columns.small{
+	margin-left: 5px;
+
+}
+
+div.columns.medium{
+	margin-left: 10px;
+}
+
+div.row.edit-slide{
+	margin-bottom: 0px;
+}
+
+div.row.bottom{
+	margin-bottom: 30px;
+}
+
+form.slide-form{
+	border: solid 1px #999;
 }

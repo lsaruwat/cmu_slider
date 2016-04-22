@@ -24,39 +24,57 @@ if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superus
 
 	foreach($rows as $row){
 		?>
-		<form method='POST' id="slide_<?php echo $row['id'];?>">
+		<form method='POST' id="slide_<?php echo $row['id'];?>" class="slide-form">
 		<div class='edit-slide row'>
-			
-			<div class='one columns'>
-				 Enabled
-				<input type="checkbox" name="enabled" value="1" <?php if($row['enabled']){echo 'checked';}?>>
-			</div>
 
-			<div class='one columns' style="margin-left: 0px;">
-				<input type='hidden' name='id' value="<?php echo $row['id'];?>"/>
-				<input type='button' onclick="deleteSlideById(event,<?php echo $row['id'];?>)" value='Delete'/>
-			</div>
-			
-			<div class='one columns'>
-				<input type='submit' class='slide_form' value='Update'/>
-			</div>
-
-			<div class='one columns'>
+			<div class='two columns medium'>
+				<label for="startDate">Starting Date</label>
 				<input type="date" name="startDate" value="<?php echo $row['startDate'];?>"/>
 			</div>
 			
-			<div class='one columns'>
+			<div class='two columns medium'>
+				<label for="endDate">End Date</label>
 				<input type="date" name="endDate" value="<?php echo $row['endDate'];?>"/>
 			</div>
 
 			<div class='two columns'>
+				<label for="img">Image</label>
+				<input type="text" name="img" id="img" value="<?php echo $row['image'];?>" /> 
+			</div>
+			<div class='two columns'>
+				<label for="url">Website Url</label>
+				<input type="text" name="url" id="url" value="<?php echo $row['url'];?>" /> 
+			</div>
+
+			<div class='two columns'>
+				<label for="title">Title</label>
 				<input type='text' name='title' value="<?php echo $row['title'];?>" />
 			</div>
 			<div class='two columns'>
-				<textarea name='content' rows='20' cols='20'><?php echo $row['content'];?></textarea>
+				<label for="content">Content</label>
+				<textarea name='content' rows='20' cols='30'><?php echo $row['content'];?></textarea>
 			</div>
-			<div class='two columns'><input type="text" name="img" id="img" value="<?php echo $row['image'];?>" /> </div>
-			<div class='two columns'><input type="text" name="url" id="url" value="<?php echo $row['url'];?>" /> </div>
+
+		</div>
+		<div class='edit-slide row'>
+			
+			<div class='one columns small'>
+				 <label for="enabled">Enabled</label>
+				<input type="checkbox" name="enabled" value="1" <?php if($row['enabled']){echo 'checked';}?>>
+			</div>
+
+			<div class='one columns small' style="float: right; margin-right: 30px;">
+				<input type='submit' class='slide_form button-primary' value='Update'/>
+			</div>
+	
+
+			<div class='one columns small' style="float: right; margin-right: 30px;">
+				<input type='hidden' name='id' value="<?php echo $row['id'];?>"/>
+				<input type='button' onclick="deleteSlideById(event,<?php echo $row['id'];?>)" value='Delete'/>
+			</div>
+			
+
+
 		</div>
 		</form>
 	<?php
