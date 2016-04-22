@@ -29,7 +29,7 @@ else {
 	if($query) {
 		$sql = "SELECT id FROM slide WHERE title=:title";
 		$psql = $conn->prepare($sql);
-		$psql->execute(":title"=>$title);
+		$psql->execute(array(":title"=>$title));
 		
 		$slideid = $psql->fetchColumn(0);
 		$username = $_SESSION['username'];
