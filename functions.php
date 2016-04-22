@@ -58,7 +58,6 @@ function getSlideById($id){
 }
 
 function expired($slide){
-	global $conn;
 	$today = new DateTime();
 	if ($today >= new DateTime($slide['startDate']) && $today <= new DateTime($slide['endDate']) ) {
 		return false;

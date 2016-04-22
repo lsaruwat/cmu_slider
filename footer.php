@@ -8,6 +8,7 @@
             <a href="register_page.php" >Register</a>
             <a href="edit_user.php" >Edit Users</a>
             <a href="edit_slides.php" >Edit Slides</a>
+            <a href="transactions.php" >Transactions</a>
             <a href="logout.php" >Logout</a>
           </div>
         </div>
