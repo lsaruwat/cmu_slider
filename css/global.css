@@ -128,7 +128,8 @@ form#slide_form .row.optional.activated{
 }
 
 .users_container table {
-	margin-left: 0.5em;
+	margin-left: auto; 
+    margin-right: auto;
 	border: 1px solid black;
 	border-collapse: collapse;
 	text-align: center;

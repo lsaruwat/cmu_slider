@@ -24,6 +24,13 @@ if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'superuser
 	$query = $psql->execute(array(":id"=>$id));
 	$message = "Success";
 	$feedback = "Successfully deleted slide " . $id;
+	
+	$username = $_SESSION['username'];
+	$type = "delete";
+	
+	$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+	$psql = $conn->prepare($sql);
+	$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
 }
 
 echo json_encode(array("message"=>$message,"imgQuery"=>$imagePath, "feedback"=>$feedback));
