@@ -20,13 +20,13 @@ include("functions.php");
     <div id="navigation">
       <div class="row">
         <div class="four columns">
-          <a href="home.php" ><h4>Home</h4></a>
+          <a href="home.php" title="Create a slide"><h4>Create Slide</h4></a>
         </div>
         <div class="four columns">
-          <a href="edit_slides.php" ><h4>Edit Slides</h4></a>
+          <a href="edit_slides.php" title="Insert, edit, or delete slides"><h4>Edit Slides</h4></a>
         </div>
         <div class="four columns">
-          <a href="users.php" ><h4>Edit Users</h4></a>
+          <a href="users.php" title="Edit or delete users"><h4>Edit Users</h4></a>
         </div>
       </div>
     </div>

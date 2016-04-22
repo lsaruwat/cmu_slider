@@ -2,13 +2,15 @@
 session_start();
 include("db/connect.php"); // this connects to the cmu_slider db so we can query it
 
-$pageTitle = "home";
+$pageTitle = "create slide";
 include("header.php");
 
 if(isset($_SESSION['username'])){
 ?>
+
 <!-- Main Content Begin -->
 <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+<script src="js/home.js"></script> <!-- included since page title is no longer 'home', so home.js isn't included in footer -->
 
 <div class="container">
 
@@ -88,6 +90,7 @@ if(isset($_SESSION['username'])){
 </div>
 
 <!-- Main Content End -->
+
 <?php
 include("footer.php");
 

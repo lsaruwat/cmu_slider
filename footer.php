@@ -4,12 +4,12 @@
      <div id="bottom-nav">
         <div class="row">
           <div class="twelve columns">
-            <a href="home.php" >Home</a>
-            <a href="register_page.php" >Register</a>
-            <a href="edit_user.php" >Edit Users</a>
-            <a href="edit_slides.php" >Edit Slides</a>
-            <a href="transactions.php" >Transactions</a>
-            <a href="logout.php" >Logout</a>
+            <a href="home.php" title="Create a slide" >Home</a>
+            <a href="register_page.php" title="Create a user" >Register</a>
+            <!-- <a href="edit_user.php" title="Edit or delete users!">Edit Users</a> -->
+            <a href="edit_slides.php" title="Insert, edit, or delete slides" >Edit Slides</a>
+            <a href="transactions.php" title="Look at the last 50 slide transactions" >Transactions</a>
+            <a href="logout.php" title="Go back to login page" >Logout</a>
           </div>
         </div>
       </div>
