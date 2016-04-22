@@ -4,7 +4,7 @@ include("functions.php");
 include("db/connect.php");
 
 $id = (int)$_POST['id'];
-$data = $_POST['data'];
+//$data = $_POST['data'];
 $message = "Failed";
 $feedback = "Failed to delete slide" . $id;
 
@@ -25,12 +25,15 @@ if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'superuser
 	$message = "Success";
 	$feedback = "Successfully deleted slide " . $id;
 	
-	$username = $_SESSION['username'];
-	$type = "delete";
-	
-	$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
-	$psql = $conn->prepare($sql);
-	$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+	//log this action
+	if($query) {
+		$username = $_SESSION['username'];
+		$type = "delete";
+		
+		$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+		$psql = $conn->prepare($sql);
+		$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+	}
 }
 
 echo json_encode(array("message"=>$message,"imgQuery"=>$imagePath, "feedback"=>$feedback));

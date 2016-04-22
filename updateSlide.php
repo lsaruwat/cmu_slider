@@ -23,12 +23,15 @@ if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] === "superuse
 	$message = "Success";
 	$feedback = "Successfully updated slide " . $id;
 	
-	$username = $_SESSION['username'];
-	$type = "edit";
-	
-	$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
-	$psql = $conn->prepare($sql);
-	$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+	//log this action
+	if($query) {
+		$username = $_SESSION['username'];
+		$type = "edit";
+		
+		$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+		$psql = $conn->prepare($sql);
+		$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+	}
 }
 
 echo json_encode(array("message"=>$message, "feedback"=>$feedback));
