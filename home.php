@@ -10,7 +10,7 @@ if(isset($_SESSION['username'])){
 
 <!-- Main Content Begin -->
 <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
-<script src="js/home.js"></script> <!-- included since page title is no longer 'home', so home.js isn't included in footer -->
+<!--<script src="js/home.js"></script> included since page title is no longer 'home', so home.js isn't included in footer -->
 
 <div class="container">
 
