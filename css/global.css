@@ -49,6 +49,14 @@ html{
 
 }
 
+.slide_preview iframe{
+	height: 100%;
+	width: 100%;
+	min-height: 500px;
+	border: none;
+
+}
+
 .slide_preview .content_container, #slides .content_container{
 	display: inline-block;
 	position: absolute;
