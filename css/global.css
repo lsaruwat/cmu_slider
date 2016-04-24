@@ -57,6 +57,22 @@ html{
 
 }
 
+.slide_preview #loading{
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	z-index: 2;
+	background-color: rgba(0,0,0,.7);
+	text-align: center;
+	padding: 25px;
+}
+
+.slide_preview #loading h3{
+	text-align: center;
+	color: #FFF;
+
+}
+
 .slide_preview .content_container, #slides .content_container{
 	display: inline-block;
 	position: absolute;

@@ -25,7 +25,7 @@ function renderPreview(){
 	else{
 		console.log(url);
 		slidePreview.attr("style", "display: inline-block; height:" + height + "px;" );
-		slidePreview.append("<h1 id='loading'>Loading Please Wait...</h1>");
+		slidePreview.append("<div id='loading'><img src='assets/ring.svg' /><h3 id='load_text'>Loading ... Please Wait</h3></div>");
 		$('<iframe/>')
 		  .attr('id', 'previewIframe')
 		  .attr('src', url)
