@@ -19,16 +19,14 @@ function submitForm(e){
 			data : formData,
 		},
 		success : function (returnData) {
-			if(returnData.message == "Password updated successfully"){
-				$("#feedback_message").html("<p>Password changed successfully</p>");
+			if(returnData.message == "Success"){
+				$("#response_message").html(returnData.feedback);
 				
-				window.setTimeout(function(){
-					window.location = "login_page.php";
-				}, 1000);
+				//window.setTimeout(function(){window.location = "login_page.php";}, 1000);
 
 			}
 			else {
-				$("#feedback_message").html("<p>"+ returnData.message + "</p>");
+				$("#response_message").html("<p>"+ returnData.feedback + "</p>");
 				console.log(returnData);
 			}
 

@@ -34,18 +34,24 @@ if($_SESSION['permissions'] === "superuser"){
 		$psql = $conn->prepare($sql);
 		$query = $psql->execute(array(":salt"=>$salt, ":key"=>$keyHashed));
 		}
-		if($query)
-			$message = "KEY updated successfully";
-		else 
-			$message = "Error in updating Key";
+		if($query){
+
+			$feedback = "KEY updated successfully";
+			$message = "Success";
+		}
+		else{
+			
+			$feedback = "Error in updating Key";
+			$message = "Failed";
+		} 
 		
 		$psql->closeCursor();
 	}
-	else  $message = "Keys do not match";
+	else  $feedback = "Keys do not match";
 
-	echo json_encode(array("message"=>$message, "row"=>$row[0] ));
+	echo json_encode(array("feedback"=>$feedback, "message"=>$message, "row"=>$row[0] ));
 }
 //endif
 
-else echo json_encode(array("message"=>"Incorrect Permissions!!!!!!!!!!!"));
+else echo json_encode(array("feedback"=>"Incorrect Permissions!!!!!!!!!!!"));
 ?>

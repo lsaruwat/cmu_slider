@@ -9,6 +9,10 @@
             <!-- <a href="edit_user.php" title="Edit or delete users!">Edit Users</a> -->
             <a href="edit_slides.php" title="Insert, edit, or delete slides" >Edit Slides</a>
             <a href="transactions.php" title="Look at the last 50 slide transactions" >Transactions</a>
+            <?php 
+            if($_SESSION['permissions'] === "superuser")echo "<a href='saveKey.php'>Manage Key</a>";
+            ?>
+            <a href="forgotPassword.php">Reset Password</a>
             <a href="logout.php" title="Go back to login page" >Logout</a>
           </div>
         </div>

@@ -25,16 +25,28 @@ function renderPreview(){
 	else{
 		console.log(url);
 		slidePreview.attr("style", "display: inline-block; height:" + height + "px;" );
-		slidePreview.append("<div id='loading'><img src='assets/ring.svg' /><h3 id='load_text'>Loading ... Please Wait</h3></div>");
-		$('<iframe/>')
-		  .attr('id', 'previewIframe')
-		  .attr('src', url)
-		  .attr("style", "display: none; overflow: hidden;")
-		  .appendTo(slidePreview)
-		  .load(function() {
-		  	$("#loading").attr("style", "display:none;");
-		  	$(this).attr("style","display: inline-block;");
-		 });
+		slidePreview.html("<div id='loading'><img src='assets/ring2.svg' /><h3 id='load_text'>Loading ... Please Wait</h3></div>");
+
+		var website = $('<iframe/>')
+		.attr('id', 'previewIframe')
+		.attr('src', url)
+		.attr("style", "display: none; overflow: hidden;")
+		.attr("sandbox", "allow-same-origin allow-scripts allow-forms")
+		.attr("scrolling", "no");
+		
+		website.appendTo(slidePreview).load(function() {
+			try{
+				slidePreview.append("<h1 style='color:red' id='iframe_error'>Website doesn't support this feature</h1>")
+				$("#loading").attr("style", "display:none;");
+				$(this).attr("style","display: inline-block;");
+				$("#iframe_error").attr("style", "display:none;");
+			}
+			
+			catch(err){
+				console.log("error");
+				slidePreview.append("<h1>Website doesn't support this feature</h1>");
+			}
+		});
 
 		//slidePreview.append("<iframe src=" + url + "></iframe>");
 	}
