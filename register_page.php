@@ -46,7 +46,7 @@ include("header.php");
 				<!--	<input type="text" name="permissions" id="permissions" class="u-full-width"/> -->
 					<select name="permissions" id="permissions" class="u-full-width"/>
 						<?php
-						foreach($conn->query('SELECT type from Permissions') as $row) {
+						foreach($conn->query("SELECT type from Permissions WHERE type != 'superuser'") as $row) {
 							echo "<option value=\"" . $row['type'] . "\">" . $row['type'] . "</option>";
 						}
 						?>

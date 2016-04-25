@@ -13,11 +13,14 @@ function renderPreview(){
 	var title = $("#slide_title").val();
 	var content = CKEDITOR.instances['slide_content'].getData();
 	var url = $("#slide_url").val();
-	var contentContainer = $("#content_container");
 	var slidePreview = $("#slide_preview");
 	var height = window.innerHeight;
+	var contentContainer = $("<div/>")
+	.attr("class","content_container")
+	.attr("id","content_container");
 
 	if(url == ""){
+		slidePreview.html(contentContainer);
 		slidePreview.attr("style", "display: inline-block; height:" + height + "px; background-image: url('" + imageUrl + "');" );
 		console.log(url);
 	}
@@ -50,7 +53,7 @@ function renderPreview(){
 
 		//slidePreview.append("<iframe src=" + url + "></iframe>");
 	}
-
+	slidePreview.append(contentContainer);
 	contentContainer.html("<h1 class='title_preview'>" + title + "</h1>");
 	contentContainer.append("<p class='content_preview'>" + content + "</p>");
 
