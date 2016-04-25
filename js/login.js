@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$("#login_form").on("submit", submitForm);
+	$("#username").focus();
 
 });
 
