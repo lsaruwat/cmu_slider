@@ -10,6 +10,12 @@ $feedback = "Failed to delete slide" . $id;
 
 if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'superuser'){
 
+	$sql = "SELECT title FROM slide WHERE id=:id";
+	$psql = $conn->prepare($sql);
+	$query = $psql->execute(array(":id"=>$id));
+	$result = $psql->fetch();
+	$slidename = $result[0];
+
 	$sql = "SELECT image FROM slide WHERE id=:id";
 	$psql = $conn->prepare($sql);
 	$query = $psql->execute(array(":id"=>$id));
@@ -30,9 +36,9 @@ if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'superuser
 		$username = $_SESSION['username'];
 		$type = "delete";
 		
-		$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+		$sql = "INSERT INTO transactions (slideid, slidename, username, type) VALUES (:slideid, :slidename, :username, :type)";
 		$psql = $conn->prepare($sql);
-		$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+		$query = $psql->execute(array(":slideid"=>$id, ":slidename"=>$slidename, ":username"=>$username, ":type"=>$type));
 	}
 }
 

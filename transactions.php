@@ -30,6 +30,7 @@ if(isset($_SESSION['username'])){
 	<table>
 		<tr>
 			<th>Slide ID</th>
+			<th>Slide Name</th>
 			<th>Username</th>
 			<th>Type</th>
 			<th>Date</th>
@@ -38,6 +39,7 @@ if(isset($_SESSION['username'])){
 <?php foreach ($transactions as $transaction) : ?>
 		<tr>
 			<td><?php echo $transaction['slideid']; ?></td>
+			<td><?php echo $transaction['slidename']; ?></td>
 			<td><?php echo $transaction['username']; ?></td>
 			<td><?php echo $transaction['type']; ?></td>
 			<td><?php echo $transaction['date']; ?></td>

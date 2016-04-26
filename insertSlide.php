@@ -35,9 +35,9 @@ else {
 		$username = $_SESSION['username'];
 		$type = "insert";
 		
-		$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+		$sql = "INSERT INTO transactions (slideid, slidename, username, type) VALUES (:slideid, :slidename, :username, :type)";
 		$psql = $conn->prepare($sql);
-		$query = $psql->execute(array(":slideid"=>$slideid, ":username"=>$username, ":type"=>$type));
+		$query = $psql->execute(array(":slideid"=>$slideid, ":slidename"=>$title, ":username"=>$username, ":type"=>$type));
 	}
 }
 

@@ -28,9 +28,9 @@ if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] === "superuse
 		$username = $_SESSION['username'];
 		$type = "edit";
 		
-		$sql = "INSERT INTO transactions (slideid, username, type) VALUES (:slideid, :username, :type)";
+		$sql = "INSERT INTO transactions (slideid, slidename, username, type) VALUES (:slideid, :slidename, :username, :type)";
 		$psql = $conn->prepare($sql);
-		$query = $psql->execute(array(":slideid"=>$id, ":username"=>$username, ":type"=>$type));
+		$query = $psql->execute(array(":slideid"=>$id, ":slidename"=>$title, ":username"=>$username, ":type"=>$type));
 	}
 }
 
