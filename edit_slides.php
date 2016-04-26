@@ -6,7 +6,7 @@ $pageTitle = "edit slides";
 include("header.php");
 if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superuser"){
 
-	$sql = "SELECT * FROM slide ORDER BY id";
+	$sql = "SELECT * FROM slide ORDER BY id DESC";
 	$psql = $conn->prepare($sql);
 	$psql->execute();
 	$rows = $psql->fetchAll();
