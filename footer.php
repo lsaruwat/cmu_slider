@@ -3,14 +3,18 @@
   <!-- universal ajax response messages go here --> 
      <div id="bottom-nav">
         <div class="row">
-          <div class="twelve columns">
+          <div class="twelve columns">			 
             <a href="home.php" title="Create a slide" >Home</a>
-            <a href="register_page.php" title="Create a user" >Register</a>
-            <!-- <a href="edit_user.php" title="Edit or delete users!">Edit Users</a> -->
-            <a href="edit_slides.php" title="Insert, edit, or delete slides" >Edit Slides</a>
-            <a href="transactions.php" title="Look at the last 50 slide transactions" >Transactions</a>
-            <?php 
-            if($_SESSION['permissions'] === "superuser")echo "<a href='saveKey.php'>Manage Key</a>";
+            <a href="edit_user.php" title="Edit or delete users!">Edit Users</a>          
+            <?php
+            if($_SESSION['permissions'] === 'admin' || $_SESSION['permissions'] === "superuser") {
+				echo "<a href='edit_slides.php' title='Insert, edit, or delete slides' >Edit Slides</a>";
+				echo "<a href='transactions.php' title='Look at the last 50 slide transactions' >Transactions</a>";
+			}
+            if($_SESSION['permissions'] === "superuser") {
+				echo "<a href='register_page.php' title='Create a user' >Register</a>";
+				echo "<a href='saveKey.php' title='For password resets' >Manage Key</a>";
+			}
             ?>
             <a href="forgotPassword.php">Reset Password</a>
             <a href="logout.php" title="Go back to login page" >Logout</a>
