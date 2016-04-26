@@ -28,6 +28,8 @@ Slide edit page
 
 Slide delete page
 
+===========================
+
 Check permissions on register page (or limit what groups they can set themselves to)
 **Check permissions on all pages
 
@@ -36,3 +38,5 @@ Remove padding on title/content div if input field is null
 Check if https is necessary (breaks previews)
 
 Check header/footer links and who has access to what pages (or remove the links if permissions aren't high enough)
+
+Reformat slides page
