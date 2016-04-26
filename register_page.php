@@ -5,6 +5,17 @@ include("db/connect.php"); // this connects to the cmu_slider db so we can query
 $pageTitle = "register";
 include("header.php");
 
+if(isset($_SESSION['username'])){ 
+	$group_query = "SELECT permissions 
+	FROM Users 
+	WHERE username='" . $_SESSION['username'] . "'";
+	$group_statement = $conn->prepare($group_query);
+	$group_statement->execute();
+	$group = $group_statement->fetchColumn(0);
+	$group_statement->closeCursor();
+	
+	if($group === "superuser") {
+
 ?>
 <!-- Main Content Begin -->
 
@@ -84,6 +95,15 @@ include("header.php");
 
 <!-- Main Content End -->
 <?php
-
 include("footer.php");
+	} //endif isadmin
+	else {
+		echo "You do not have permission to access this page.";
+	}
+} // endif username isset
+
+else {
+	$loginURL = "login_page.php";
+	echo "Please <a href='$loginURL'>login</a> to continue";
+}
 ?>
