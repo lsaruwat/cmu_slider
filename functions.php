@@ -65,6 +65,14 @@ function expired($slide){
 	else return true;
 }
 
+function isFuture($slide){
+	$today = new DateTime();
+	if ($today <= new DateTime($slide['startDate']) ) {
+		return true;
+	}
+	else return false;
+}
+
 function isEnabled($slide){
 	return (bool)$slide['enabled']; 
 }

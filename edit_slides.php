@@ -55,6 +55,14 @@ if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superus
 			<div class='one columns small' style="float: right; margin-right: 30px;">
 				<input type='submit' class='slide_form button-primary' value='Update'/>
 			</div>
+
+			<div class='one columns medium'>
+				<?php 
+				if(isFuture($row)) echo "<h3 class='yellow'>Future</h3>";
+				else if(expired($row)) echo "<h3 class='red'>Expired</h3>";
+				else echo "<h3 class='green'>Active</h3>";
+				?>
+			</div>
 	
 
 			<div class='one columns small' style="float: right; margin-right: 30px;">

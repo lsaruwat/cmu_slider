@@ -2,8 +2,12 @@ html{
 	font-family: helvetica;
 }
 
+body{
+	background-color: #FFFFFF;
+}
+
 .container{
-		
+	background-color: #FFFFFF;
 }
 
 .row{
@@ -240,4 +244,16 @@ div.row.bottom{
 
 form.slide-form{
 	border: solid 1px #999;
+}
+
+.yellow{
+	color: gold;
+}
+
+.red{
+	color: red;
+}
+
+.green{
+	color: green;
 }
