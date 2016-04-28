@@ -244,6 +244,7 @@ div.row.bottom{
 
 form.slide-form{
 	border: solid 1px #999;
+	position: relative;
 }
 
 .yellow{
@@ -256,4 +257,12 @@ form.slide-form{
 
 .green{
 	color: green;
+}
+
+.disabled{
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(256,256,256,.7);
 }
