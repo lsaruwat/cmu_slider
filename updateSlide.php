@@ -9,6 +9,7 @@ $content = $_POST['content'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 (int)$enabled = $_POST['enabled'];
+$url = $_POST['url'];
 
 
 $message = "Failed";
@@ -16,9 +17,9 @@ $feedback = "Failed to update slide!";
 
 if($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] === "superuser"){
 
-	$sql = "UPDATE slide SET title=:title, content=:content, startDate=:startDate, endDate=:endDate, enabled=:enabled WHERE id=:id";
+	$sql = "UPDATE slide SET title=:title, content=:content, startDate=:startDate, endDate=:endDate, enabled=:enabled, url=:url WHERE id=:id";
 	$psql = $conn->prepare($sql);
-	$query = $psql->execute(array(":id"=>$id, ":title"=>$title, ":content"=>$content, ":startDate"=>$startDate, ":endDate"=>$endDate, ":enabled"=>$enabled ));
+	$query = $psql->execute(array(":id"=>$id, ":title"=>$title, ":content"=>$content, ":startDate"=>$startDate, ":endDate"=>$endDate, ":enabled"=>$enabled, ":url"=>$url));
 	
 	$message = "Success";
 	$feedback = "Successfully updated slide " . $id;
