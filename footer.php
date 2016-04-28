@@ -5,7 +5,7 @@
         <div class="row">
           <div class="twelve columns">			 
             <a href="home.php" title="Create a slide" >Home</a>
-            <a href="edit_user.php" title="Edit or delete users!">Edit Users</a>          
+            <a href="users.php" title="Edit or delete users!">Edit Users</a>          
             <?php
             if($_SESSION['permissions'] === 'admin' || $_SESSION['permissions'] === "superuser") {
 				echo "<a href='edit_slides.php' title='Insert, edit, or delete slides' >Edit Slides</a>";
