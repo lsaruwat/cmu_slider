@@ -14,7 +14,7 @@ if(isset($_SESSION['username'])){
 	$group = $group_statement->fetchColumn(0);
 	$group_statement->closeCursor();
 	
-	if($group === 'admin' || $group === "superuser") {
+	if($group === "superuser") {
 		$users_query = "SELECT *
 		FROM Users
 		ORDER BY username";
