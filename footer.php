@@ -4,8 +4,7 @@
      <div id="bottom-nav">
         <div class="row">
           <div class="twelve columns">			 
-            <a href="home.php" title="Create a slide" >Home</a>
-            <a href="users.php" title="Edit or delete users!">Edit Users</a>          
+            <a href="home.php" title="Create a slide" >Create Slides</a>
             <?php
             if($_SESSION['permissions'] === 'admin' || $_SESSION['permissions'] === "superuser") {
 				echo "<a href='edit_slides.php' title='Insert, edit, or delete slides' >Edit Slides</a>";
@@ -13,6 +12,7 @@
 			}
             if($_SESSION['permissions'] === "superuser") {
 				echo "<a href='register_page.php' title='Create a user' >Register</a>";
+				echo "<a href='users.php' title='Edit or delete users!'>Edit Users</a>";
 				echo "<a href='saveKey.php' title='For password resets' >Manage Key</a>";
 			}
             ?>
