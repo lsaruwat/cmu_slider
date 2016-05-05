@@ -1,3 +1,5 @@
+<!-- Old slider that uses 3rd party library called superslides -->
+
 <!DOCTYPE html>
 <html>
 <head>
