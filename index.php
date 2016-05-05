@@ -1,103 +1,102 @@
 <?php
-/*
 session_start();
 include("db/connect.php"); // this connects to the cmu_slider db so we can query it
 
-$pageTitle = "index";
+$pageTitle = "create slide";
 include("header.php");
 
-if(isset($_SESSION['username'])){
-	//May need to JOIN template table if not put into separate table
-	$query = "SELECT * 
-	FROM Slideshow 
-	ORDER BY editdate DESC";
-	$statement = $conn->prepare($query);
-	$statement->execute();
-	$slides = $statement->fetchAll();
-	$statement->closeCursor();
-	
-	$perm_query = "SELECT permissions 
-	FROM Users 
-	WHERE username='$_SESSION['username']'
-	JOIN Permissions ON Users.permissions=Permissions.type";
-	$perm_statement = $conn->prepare($perm_query);
-	$perm_statement->execute();
-	$permissions = $perm_statement->fetchAll();
-	$perm_statement->closeCursor();
+if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superuser"){
 ?>
-<!-- Main Content Begin -->
 
-<div class="container index_container">
-	<h1>Slides</h1>
-	<table>
-		<tr>
-			<th>Title</th>
-			<th>Created By</th>
-			<th>Edited By</th>
-			<th>Last Edited</th>
-			<th>&nbsp;</th>
-			<th>&nbsp;</th>
-		</tr>
+<!-- Main Content Begin -->
+<script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+<!--<script src="js/home.js"></script> included since page title is no longer 'home', so home.js isn't included in footer -->
+
+<div class="container">
+
+	<div id="slide_options">
+		<div class="row">
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Text Slide"/>
+			</div>
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Picture Slide"/>
+			</div>
+			<div class="four columns">
+				<input type="button" class="button" id="simple" value="Web Slide"/>
+			</div>
+		</div>
+	</div>
+
+	<form id="slide_form" enctype="multipart/form-data">
 		
-<?php foreach ($slides as $slide) : ?>
-		<tr>
-			<td><?php echo $slide['slidename']; ?></td>
-			<td><?php echo $slide['createdby']; ?></td>
-			<td><?php echo $slide['editedby']; ?></td>
-			<td><?php echo $slide['editdate']; ?></td>
-			
-			<!-- TODO: Unsure of best way to handle editting
-				 and deleting slide entries. Logan/Austin
-				 revise if needed using JS or other methods. -->
-			
-			<td> <!-- Edit -->
-				<?php
-					if($permissions['editslide'] == 1) {
-				?>
-						<form action="edit_slide.php" method="post">
-							<input type="hidden" name="slide_id" value="<?php echo $slide['slideid']; ?>">
-							<input type="submit" value="Edit">
-						</form>
-				<?php
-					} //endif
-					
-					else {
-						echo "&nbsp;";
-					}
-				?>
-			</td>
-			
-			<td> <!-- Delete -->
-				<?php
-					if($permissions['deleteslide'] == 1) {
-				?>
-						<form action="delete_slide.php" method="post">
-							<input type="hidden" name="slide_id" value="<?php echo $slide['slideid']; ?>">
-							<input type="submit" value="Delete">
-						</form>
-				<?php
-					} //endif
-					
-					else {
-						echo "&nbsp;";
-					}
-				?>
-			</td>
-		</tr>
-<?php endforeach; ?>
-		
-	</table>
+		<div class="row optional url">
+			<div class="twelve columns">
+				<label for="slide_url">Website URL</label>
+				<input type="text" name="slide_url" id="slide_url" class="u-full-width"/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="twelve columns">
+				<label for="slide_title">Title</label>
+				<input type="text" name="slide_title" id="slide_title" class="u-full-width"/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="twelve columns">
+				<label for="slide_content">Content</label>
+				<textarea name="slide_content" id="slide_content"></textarea>	
+			</div>
+		</div>
+
+		<div class="row optional picture">
+			<div class="twelve columns">
+				<label for="slide_picture">Upload Picture</label>
+				<input type="file" name="slide_picture" id="slide_picture" class="u-full-width" onchange="readURL(this);" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="six columns">
+				<label for="startDate">Start Date</label>
+				<input type="date" class="date" id="startDate" name="startDate"/>
+			</div>
+
+			<div class="six columns">
+				<label for="endDate">End Date</label>
+				<input type="date" class="date" id="endDate" name="endDate"/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="six columns">
+				<input type="button" value="Preview" class="button" id="preview_button"/>
+			</div>
+
+			<div class="six columns">
+				<input type="submit" value="Submit" class="button-primary" id="submit_slide_button" style="float: right;"/>
+			</div>
+		</div>
+	
+	</form>
+
+</div>
+
+<div class="row slide_preview" id="slide_preview">
 </div>
 
 <!-- Main Content End -->
+
 <?php
 include("footer.php");
 
 } // endif
 
 else {
-	$loginURL = "http://baldr.whatever212.net/software16/login_page.php"
+	$loginURL = "login_page.php";
 	echo "Please <a href='$loginURL'>login</a> to continue";
 }
-*/
+
 ?>

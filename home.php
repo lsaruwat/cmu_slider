@@ -5,7 +5,7 @@ include("db/connect.php"); // this connects to the cmu_slider db so we can query
 $pageTitle = "create slide";
 include("header.php");
 
-if(isset($_SESSION['username'])){
+if($_SESSION['permissions'] === "admin" || $_SESSION['permissions'] === "superuser"){
 ?>
 
 <!-- Main Content Begin -->
